@@ -1,7 +1,42 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
-#
-# Examples:
-#
-#   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
-#   Mayor.create(name: 'Emanuel', city: cities.first)
+dan = User.new
+dan.email = "dan@dan.com"
+dan.username = "Dan"
+dan.password = "ASHfDHFKLdhfsdj434234"
+dan.save!
+
+bill = User.new
+bill.email = "bill@bill.com"
+bill.username = "bill"
+bill.password = "sdfifi7363fddfd4"
+bill.save!
+
+bilbo = User.new
+bilbo.email = "bilbo@bilbo.com"
+bilbo.username = "bilbo"
+bilbo.password = "fdwfsdjhf7373jd"
+bilbo.save!
+
+spagett = User.new
+spagett.email = "spagett@spagett.com"
+spagett.username = "spagett"
+spagett.password = "asdasdsdas34883d4"
+spagett.save!
+
+
+MKS = Group.create(name: "MKS Gamers")
+MKS.memberships.create(user_id: dan.id)
+MKS.memberships.create(user_id: bill.id)
+MKS.memberships.create(user_id: bilbo.id)
+MKS.memberships.create(user_id: spagett.id)
+
+#4 person test tourney
+completedTourney = MKS.tournaments.create(game_type: "Smash Bros", name: "MKS CompletedTourney", champion_id: 3)
+t1match1 = completedTourney.matches.create(player_1: 1, player_2: 2, winner_id: 1)
+t1match2 = completedTourney.matches.create(player_1: 3, player_2: 4, winner_id: 3)
+t1match3 = completedTourney.matches.create(player_1: 1, player_2: 3, winner_id: 3)
+
+#4 person test tourney
+inProgressTourney = MKS.tournaments.create(game_type: "Smash Bros", name: "MKS TourneyInProgress")
+t1match1 = completedTourney.matches.create(player_1: 1, player_2: 2, winner_id: 2)
+t1match2 = completedTourney.matches.create(player_1: 3, player_2: 4, winner_id: 4)
+#Final round not yet played!
