@@ -19,7 +19,7 @@ class User < ActiveRecord::Base
   validates :username,
   :uniqueness => {
     :case_sensitive => false
-  },
-  :format => { ... } # etc.
+  }#,
+  # :format => { } # etc.
 
 end
