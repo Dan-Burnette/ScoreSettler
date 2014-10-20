@@ -1,10 +1,15 @@
 Rails.application.routes.draw do
   devise_for :users
 
-  resources :users
+  resources :users, :except => [:index]
+  resources :groups
+  resources :tournaments do
+    resources :matches
+  end
 
 
-  
+  root to: 'users#show'
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

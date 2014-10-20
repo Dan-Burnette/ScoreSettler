@@ -1,5 +1,6 @@
 source 'https://rubygems.org'
 
+gem 'foundation-rails'
 #User Authentication
 gem 'devise'
 #Make the rails console look pretty
