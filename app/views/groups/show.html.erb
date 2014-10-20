@@ -1,0 +1,16 @@
+
+<!-- Link to an in progress tournament page -->
+<h3>Tournaments in progress</h3>
+<% @incomplete_tournaments.each do |t| %>
+	<ul>
+		<li> <%= link_to t.name, tournament_path(t.id) , method: :GET %> </li>
+	</ul>
+<% end %>
+
+<!-- Display winner on this page -->
+<h3>Completed Tournaments</h3>
+<% @complete_tournaments.each_with_index do |t,i| %>
+	<ul> 
+		<li> <%= t.name %> <h5>Victor : <%=@winners[i].username%></h5> </li>
+	</ul>
+<% end %>
