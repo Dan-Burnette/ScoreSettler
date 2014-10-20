@@ -1,25 +1,25 @@
 dan = User.new
 dan.email = "dan@dan.com"
 dan.username = "Dan"
-dan.password = "ASHfDHFKLdhfsdj434234"
+dan.password = "dingusdan"
 dan.save!
 
 bill = User.new
 bill.email = "bill@bill.com"
 bill.username = "bill"
-bill.password = "sdfifi7363fddfd4"
+bill.password = "billybob"
 bill.save!
 
 bilbo = User.new
 bilbo.email = "bilbo@bilbo.com"
 bilbo.username = "bilbo"
-bilbo.password = "fdwfsdjhf7373jd"
+bilbo.password = "bilbobaggins"
 bilbo.save!
 
 spagett = User.new
 spagett.email = "spagett@spagett.com"
 spagett.username = "spagett"
-spagett.password = "asdasdsdas34883d4"
+spagett.password = "spookedya"
 spagett.save!
 
 

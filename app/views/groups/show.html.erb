@@ -9,8 +9,9 @@
 
 <!-- Display winner on this page -->
 <h3>Completed Tournaments</h3>
+
 <% @complete_tournaments.each_with_index do |t,i| %>
 	<ul> 
-		<li> <%= t.name %> <h5>Victor : <%=@winners[i].username%></h5> </li>
+		<li> <%= t.name %> <h5>Victor : <%=@champs[i].username%></h5> </li>
 	</ul>
 <% end %>
