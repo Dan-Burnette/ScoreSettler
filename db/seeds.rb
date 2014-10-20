@@ -40,3 +40,6 @@ inProgressTourney = MKS.tournaments.create(game_type: "Smash Bros", name: "MKS T
 t1match1 = completedTourney.matches.create(player_1: 1, player_2: 2, winner_id: 2)
 t1match2 = completedTourney.matches.create(player_1: 3, player_2: 4, winner_id: 4)
 #Final round not yet played!
+
+
+GroupToJoin = Group.create(name: "TestGroup1")
