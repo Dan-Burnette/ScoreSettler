@@ -31,7 +31,8 @@ class TournamentsController < ApplicationController
       tournament = Tournament.new(tournament_params)
       tournament.size = t_size
       if (tournament.save)
-        redirect_to tournament_path(tournament.id, :players => player_names)
+        session[:players] = player_names
+        redirect_to tournament_path(tournament.id)
       else
         #error did not save !
       end
@@ -69,7 +70,7 @@ class TournamentsController < ApplicationController
   def show
     @tournament = Tournament.find(params[:id])
     #If tournament was just created we have the players
-    @players = params[:players]
+    @players = session[:players]
     #If the tournament was already created, get the players 
     #from the tournament's matches
 
