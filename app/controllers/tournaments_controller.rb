@@ -8,48 +8,71 @@ class TournamentsController < ApplicationController
 
  #Create tournament, randomize players, make its matches, redirect to it's view if successful
   def create
-
     #Setting up the players 
-    players = params[:players]
-    player_count = players.size
-
-    if (player_count < 4)
+    player_names = params[:players]
+    player_count = player_names.size
+    if (player_count <= 4)
       byes = 4 - player_count
       t_size = 4
-    elsif (player_count < 8)
+    elsif (player_count <= 8)
       byes = 4 - player_count
       t_size = 8
-    elsif (player_count < 16)
+    elsif (player_count <= 16)
       byes = 4 - player_count
       t_size = 16
     else
       t_size = 'too big'
     end
-
-    byes.times { players.push("bye") }
-    players.shuffle!
-
-    #Setting up the matches
-
+    byes.times { player_names.push("bye") }
+    player_names.shuffle!
 
     #Actual tournament creation
     if (t_size != 'too big')
       tournament = Tournament.new(tournament_params)
       tournament.size = t_size
       if (tournament.save)
-        redirect_to tournament_path(tournament.id, :players => players)
+        redirect_to tournament_path(tournament.id, :players => player_names)
       else
         #error did not save !
       end
     else
       #error t_size too big
     end
+
+    #Match setup
+    if (tournament != nil)
+      #Create all  matches for the tournament
+      (t_size-1).times {tournament.matches.create()}
+      puts tournament.matches
+      #populate the first round with players
+      players = []
+      player_names.each do |p|
+       found = players.push(User.find_by(username: p))
+      end
+      ind = 0
+      puts players[0].id
+      puts players[1].id
+      puts players[2].id
+      puts players[3].id
+      puts t_size
+      for i in 0...t_size/2
+        #Does devise not let me access other user ids?
+        tournament.matches[i].player_1 = players[ind].id
+        tournament.matches[i].player_2 = players[ind+1].id
+        ind += 2
+      end
+    end
+
   end
 
   #Only to be used on in progress tournaments 
   def show
     @tournament = Tournament.find(params[:id])
+    #If tournament was just created we have the players
     @players = params[:players]
+    #If the tournament was already created, get the players 
+    #from the tournament's matches
+
     case @tournament.size
     when 4
       render 'show_four_person_tournament'
@@ -60,12 +83,10 @@ class TournamentsController < ApplicationController
     end
   end
 
-
   #To be used upon deletion of a group, destroy all tournaments associated with it
   def destroy
 
   end
-
 
   def tournament_params
     params.require(:tournament).permit(:game_type, :group_id, :name, :champion_id, :size)
