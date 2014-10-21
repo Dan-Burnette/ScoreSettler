@@ -22,12 +22,48 @@ spagett.username = "spagett"
 spagett.password = "spookedya"
 spagett.save!
 
+mike = User.new
+mike.email = "mike@mike.com"
+mike.username = "mike"
+mike.password = "spookedya"
+mike.save!
 
+billybob = User.new
+billybob.email = "billybob@billybob.com"
+billybob.username = "billybob"
+billybob.password = "spookedya"
+billybob.save!
+
+shannon = User.new
+shannon.email = "shannon@shannon.com"
+shannon.username = "shannon"
+shannon.password = "spookedya"
+shannon.save!
+
+john = User.new
+john.email = "john@john.com"
+john.username = "john"
+john.password = "spookedya"
+john.save!
+
+mrNine = User.new
+mrNine.email = "mrNine@mrNine.com"
+mrNine.username = "mrNine"
+mrNine.password = "spookedya"
+mrNine.save!
+
+#spagett is the not a member
 MKS = Group.create(name: "MKS Gamers", admin_id: 1)
 MKS.memberships.create(user_id: dan.id)
 MKS.memberships.create(user_id: bill.id)
 MKS.memberships.create(user_id: bilbo.id)
-MKS.memberships.create(user_id: spagett.id)
+MKS.memberships.create(user_id: mike.id)
+MKS.memberships.create(user_id: billybob.id)
+MKS.memberships.create(user_id: shannon.id)
+MKS.memberships.create(user_id: john.id)
+MKS.memberships.create(user_id: mrNine.id)
+
+
 
 #4 person test tourney
 completedTourney = MKS.tournaments.create(game_type: "Smash Bros", name: "MKS CompletedTourney", champion_id: 3)

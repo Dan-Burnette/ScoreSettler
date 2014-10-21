@@ -50,7 +50,7 @@ class TournamentsController < ApplicationController
   def show
     @tournament = Tournament.find(params[:id])
     @players = params[:players]
-    case tournament.size
+    case @tournament.size
     when 4
       render 'show_four_person_tournament'
     when 8

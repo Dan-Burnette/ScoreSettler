@@ -1,1 +1,97 @@
-<%= @players %>
+
+<%= stylesheet_link_tag "four_person_tournament" %>
+
+<div class="row">
+    <div class="large-12 columns">
+      <h1 class="text-center panel"><%=@tournament.name%></h1>
+    </div>
+  </div>
+
+  <div class="row tournament-container">
+
+      <div class="large-2 columns">
+        <div class="row player start text-center"><%=@players[0]%></div>
+        <div class="row ">&nbsp</div>
+        <div class="row player start text-center"><%=@players[1]%></div>
+        <div class="row ">&nbsp</div>
+        <div class="row player start text-center"><%=@players[2]%></div>
+        <div class="row ">&nbsp</div>
+        <div class="row player start text-center"><%=@players[3]%></div>
+        <div class="row ">&nbsp</div>
+      </div>
+
+      <div class="large-2 columns spacer">
+        <div>
+          <div class="line">&nbsp</div>
+          <div class="line player-line">&nbsp</div>
+          <div class="line connector">&nbsp</div>
+        </div>
+
+        <div class="line center">&nbsp</span></div>
+
+        <div>
+          <div class="line connector">&nbsp</div>
+          <div class="line player-line">&nbsp</div>
+          <div class="line">&nbsp</div>
+        </div>
+
+        <div>&nbsp</div>    
+
+        <div>
+          <div class="line">&nbsp</div>
+          <div class="line player-line">&nbsp</div>
+          <div class="line connector">&nbsp</div>
+        </div>
+
+        <div class="line center">&nbsp</div>
+
+        <div>
+          <div class="line connector">&nbsp</div>
+          <div class="line player-line">&nbsp</div>
+          <div class="line">&nbsp</div>
+        </div>
+      </div>
+
+      <div class="large-2 columns">
+        <div class="row ">&nbsp</div>
+        <div class="row player round2 text-center">round 1 victor</div>
+        <div class="row ">&nbsp</div>  
+        <div class="row ">&nbsp</div>
+        <div class="row ">&nbsp</div>
+        <div class="row player round2 text-center">round 1 victor</div>
+        <div class="row ">&nbsp</div>
+        <div class="row ">&nbsp</div>
+      </div>
+
+      <div class="large-2 columns spacer">
+        <div>&nbsp</div>
+        <div>
+          <div class="line">&nbsp</div>
+          <div class="line player-line">&nbsp</div>
+          <div class="line bigger-connector">&nbsp</div>
+        </div>
+
+        <div class="line center">&nbsp</div>
+
+        <div>          
+          <div class="line bigger-connector">&nbsp</div>
+          <div class="line player-line">&nbsp</div>
+          <div class="line">&nbsp</div>        
+        </div>
+        <div>&nbsp</div>
+      </div>
+
+      <div class="large-2 columns">
+        <div class="row">&nbsp</div>
+        <div class="row">&nbsp</div>
+        <div class="row">&nbsp</div>
+        <div class="row player winner text-center">Winner</div>
+        <div class="row">&nbsp</div>
+        <div class="row">&nbsp</div>
+        <div class="row">&nbsp</div>      
+        <div class="row">&nbsp</div>   
+      </div>
+      <div class="large-2 columns spacer">&nbsp</div>
+      
+  </div>
+
