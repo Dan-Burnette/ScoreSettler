@@ -6,18 +6,28 @@ class TournamentsController < ApplicationController
   end
 
   def create
+    tournament = Tournament.new(tournament_params)
+    if (tournament.save)
+      redirect_to :back
+    else
+      #error did not save !
+    end
   end
 
 
-  #If completed (ie has a winner_id), show the results, else show the tournament 
+  #Only to be used on in progress tournaments 
   def show
   end
-
 
 
   #To be used upon deletion of a group, destroy all tournaments associated with it
   def destroy
 
+  end
+
+
+  def tournament_params
+    params.require(:tournament).permit(:game_type, :group_id, :name)
   end
 
 end

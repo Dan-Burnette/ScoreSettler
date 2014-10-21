@@ -15,8 +15,8 @@ class GroupsController < ApplicationController
   #Should display a list of tournaments which can be clicked
   #Then the tournament shows all its matches
   def show
-    group = Group.find(params[:id])
-    tournaments = group.tournaments
+    @group = Group.find(params[:id])
+    tournaments = @group.tournaments
 
     @complete_tournaments = []
     @champs = []

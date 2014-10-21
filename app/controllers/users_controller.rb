@@ -5,7 +5,7 @@ class UsersController < ApplicationController
     #Handled upon registration by devise
   # end
 
-  #Show all that user's groups
+  #Main User Page, shows all their groups
   def show
     @user = current_user
     user_memberships = Membership.where("user_id = ?", @user.id)
@@ -18,8 +18,5 @@ class UsersController < ApplicationController
     
   end
 
-  def user_params
-    params.require(:user).permit(:username, :email)
-  end
 
 end
