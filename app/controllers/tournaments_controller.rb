@@ -30,11 +30,12 @@ class TournamentsController < ApplicationController
     players.shuffle!
 
     #Setting up the matches
-    
+
 
     #Actual tournament creation
     if (t_size != 'too big')
       tournament = Tournament.new(tournament_params)
+      tournament.size = t_size
       if (tournament.save)
         redirect_to tournament_path(tournament.id, :players => players)
       else
@@ -45,9 +46,18 @@ class TournamentsController < ApplicationController
     end
   end
 
-
   #Only to be used on in progress tournaments 
   def show
+    @tournament = Tournament.find(params[:id])
+    @players = params[:players]
+    case tournament.size
+    when 4
+      render 'show_four_person_tournament'
+    when 8
+      render 'show_eight_person_tournament'
+    when 16
+      render 'show_sixteen_person_tournament'
+    end
   end
 
 
@@ -58,7 +68,7 @@ class TournamentsController < ApplicationController
 
 
   def tournament_params
-    params.require(:tournament).permit(:game_type, :group_id, :name)
+    params.require(:tournament).permit(:game_type, :group_id, :name, :champion_id, :size)
   end
 
 end
