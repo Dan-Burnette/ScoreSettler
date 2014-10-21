@@ -1,5 +1,6 @@
 class User < ActiveRecord::Base
   has_many :memberships
+  has_many :groups, through: :memberships
   attr_accessor :login
 
   # Include default devise modules. Others available are:

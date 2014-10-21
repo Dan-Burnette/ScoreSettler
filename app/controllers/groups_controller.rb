@@ -16,13 +16,7 @@ class GroupsController < ApplicationController
   #Then the tournament shows all its matches
   def show
     @group = Group.find(params[:id])
-
-    #group member getting logic
-    memberships = Membership.where("group_id = ?", @group.id)
-    @group_members = []
-    memberships.each do |membership|
-      @group_members.push(User.find(membership.user_id))
-    end
+    @group_members = @group.users
 
     # Tournament getting logic
     tournaments = @group.tournaments

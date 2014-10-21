@@ -9,10 +9,12 @@
 		<input name="tournament[name]" type="text" value="" />
 		<label>What game are you playing?</label>
 		<input name="tournament[game_type]" type="text" value="" />
-		<label>Participants</label>
+		<label><h5>Participants</h5></label>
+		<label><h6>Tournament sizes are 4,8, and 16. Selections not matching this will have byes added appropriately </h6></label>
+		<label class="player-counter"> Players selected: 0</label>
 		<%@group_members.each_with_index do |member,i| %>
 			<label>
-				<input type="checkbox" name="players["+<%i%>+"]" value=<%=member.username%>>
+				<input type="checkbox" name="players[]" value=<%=member.username%>>
 				<%=member.username%>
 			</label>
 		<% end %>
