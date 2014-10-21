@@ -8,3 +8,4 @@ Rails.application.config.assets.version = '1.0'
 # Rails.application.config.assets.precompile += %w( search.js )
 Rails.application.config.assets.precompile += %w( four_person_tournament.css )
 Rails.application.config.assets.precompile += %w( eight_person_tournament.css )
+Rails.application.config.assets.precompile += %w( playTournament.js)

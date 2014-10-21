@@ -1,5 +1,6 @@
 
 <%= stylesheet_link_tag "four_person_tournament" %>
+<%= javascript_include_tag "playTournament" %>
 
 <div class="row">
     <div class="large-12 columns">
@@ -10,13 +11,13 @@
   <div class="row tournament-container">
 
       <div class="large-2 columns">
-        <div class="row player start text-center"><%=@players[0]%></div>
+        <div class="row player _1 start text-center"><%=@players[0]%></div>
         <div class="row ">&nbsp</div>
-        <div class="row player start text-center"><%=@players[1]%></div>
+        <div class="row player _2 start text-center"><%=@players[1]%></div>
         <div class="row ">&nbsp</div>
-        <div class="row player start text-center"><%=@players[2]%></div>
+        <div class="row player _3 start text-center"><%=@players[2]%></div>
         <div class="row ">&nbsp</div>
-        <div class="row player start text-center"><%=@players[3]%></div>
+        <div class="row player _4 start text-center"><%=@players[3]%></div>
         <div class="row ">&nbsp</div>
       </div>
 
@@ -54,11 +55,11 @@
 
       <div class="large-2 columns">
         <div class="row ">&nbsp</div>
-        <div class="row player round2 text-center">round 1 victor</div>
+        <div class="row player_5 round2 text-center">round 1 victor</div>
         <div class="row ">&nbsp</div>  
         <div class="row ">&nbsp</div>
         <div class="row ">&nbsp</div>
-        <div class="row player round2 text-center">round 1 victor</div>
+        <div class="row player _6 round2 text-center">round 1 victor</div>
         <div class="row ">&nbsp</div>
         <div class="row ">&nbsp</div>
       </div>
@@ -85,7 +86,7 @@
         <div class="row">&nbsp</div>
         <div class="row">&nbsp</div>
         <div class="row">&nbsp</div>
-        <div class="row player winner text-center">Winner</div>
+        <div class="row player _7 winner text-center">Winner</div>
         <div class="row">&nbsp</div>
         <div class="row">&nbsp</div>
         <div class="row">&nbsp</div>      
