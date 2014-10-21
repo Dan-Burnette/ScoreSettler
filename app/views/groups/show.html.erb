@@ -3,13 +3,21 @@
 
 <!-- If the user is admin of the group allow them to create a tournament -->
 <% if current_user.id == @group.admin_id %>
+	<h3>Start a new tournament for this group</h3>
 	<%= form_tag tournaments_path, method: :POST do %>
 		<label>Tournament Name </label>
 		<input name="tournament[name]" type="text" value="" />
 		<label>What game are you playing?</label>
 		<input name="tournament[game_type]" type="text" value="" />
+		<label>Participants</label>
+		<%@group_members.each_with_index do |member,i| %>
+			<label>
+				<input type="checkbox" name="players["+<%i%>+"]" value=<%=member.username%>>
+				<%=member.username%>
+			</label>
+		<% end %>
 		<input name="tournament[group_id]" type="hidden" value=<%=@group.id%> />
-		<input name="submit" type="submit" value="submit" />
+		<input type="submit" />
 	<% end %>
 <% end %>
 

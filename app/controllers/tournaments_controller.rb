@@ -8,7 +8,8 @@ class TournamentsController < ApplicationController
   def create
     tournament = Tournament.new(tournament_params)
     if (tournament.save)
-      redirect_to :back
+      #Show the tournament!
+      redirect_to tournament_path(tournament.id, :players => params[:players])
     else
       #error did not save !
     end
