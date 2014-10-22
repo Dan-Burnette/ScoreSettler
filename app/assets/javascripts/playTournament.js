@@ -6,17 +6,19 @@ $('.player').on('click', function() {
 
 	var $allPlayerSpots = $('.player');
 	var tournamentSize = ($allPlayerSpots.size()+1)/2;
-	var playerPosition = $allPlayerSpots.index($(this))
+	var playerPosition = $allPlayerSpots.index($(this));
 
 	//Find the other player in that match
 	if ($(this).hasClass('odd')){
-		var otherPlayer = $allPlayerSpots.get(playerPosition-1)
+		var otherPlayer = $allPlayerSpots.get(playerPosition-1);
+		var whichPlayer = 'player2';
 	}
 
 	else if ($(this).hasClass('even')){
-		var otherPlayer = $allPlayerSpots.get(playerPosition+1)
+		var otherPlayer = $allPlayerSpots.get(playerPosition+1);
+		var whichPlayer = 'player1'
 	}
-	$(this).css('background-color', 'green')
+	$(this).css('background-color', 'green');
 	$(otherPlayer).css('background-color', 'red');
 
 //////////////////
@@ -77,6 +79,7 @@ $('.player').on('click', function() {
 	}
 
 	var playerName = $(this).text();
+	var otherPlayerName = $(otherPlayer).text();
 	$(spotToFill).text(playerName);
 
 	//Special case, illuminate champion spot upon choosing victor of finals 
@@ -86,7 +89,23 @@ $('.player').on('click', function() {
 
 	//AJAX to update the tournament's matches on the server
 	var tournament_id = $('.tournament_id').val();
-	var matchUpdateJSON = {};
+	var matchUpdateJSON = 
+		{
+			tournament : tournament_id,
+			match : match_id 
+		}
+
+	if (whichPlayer == "player1"){	
+		matchUpdateJSON.player1 = playerName;
+		matchUpdateJSON.player2 = otherPlayerName;
+	}
+	else if (whichPlayer == 'player2'){
+		matchUpdateJSON.player1 = otherPlayerName;
+		matchUpdateJSON.player2 = playerName;
+	}
+	console.log(matchUpdateJSON);
+
+
 	$.ajax({
 		url: '/tournaments/:tournament_id/matches/:id/edit',
 		dataType: 'json',
