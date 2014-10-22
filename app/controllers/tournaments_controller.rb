@@ -70,6 +70,7 @@ class TournamentsController < ApplicationController
   #Only to be used on in progress tournaments 
   def show
     @tournament = Tournament.find(params[:id])
+    @matches = @tournament.matches
     #If tournament was just created we have the players
     @players = session[:players]
     #If the tournament was already created, get the players 
