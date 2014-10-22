@@ -92,7 +92,8 @@ $('.player').on('click', function() {
 	var matchUpdateJSON = 
 		{
 			tournament : tournament_id,
-			match : match_id 
+			match : match_id,
+			winner : playerName 
 		}
 
 	if (whichPlayer == "player1"){	
@@ -105,11 +106,10 @@ $('.player').on('click', function() {
 	}
 	console.log(matchUpdateJSON);
 
-
 	$.ajax({
-		url: '/tournaments/:tournament_id/matches/:id/edit',
+		url: '/tournaments/' + tournament_id + '/matches/' + match_id,
 		dataType: 'json',
-		type: 'POST',
+		type: 'PUT',
 		data: matchUpdateJSON,
 		success: function(){
 			

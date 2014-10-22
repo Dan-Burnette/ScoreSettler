@@ -45,7 +45,7 @@ class TournamentsController < ApplicationController
     #Match setup
     if (tournament != nil)
       #Create all  matches for the tournament
-      (t_size-1).times {tournament.matches.create(status: "active")}
+      (t_size-1).times {tournament.matches.create()}
       puts tournament.matches
       #populate the first round with players
       players = []
@@ -90,6 +90,10 @@ class TournamentsController < ApplicationController
   #To be used upon deletion of a group, destroy all tournaments associated with it
   def destroy
 
+  end
+
+  def update
+    # redirect_to :back
   end
 
   def tournament_params
