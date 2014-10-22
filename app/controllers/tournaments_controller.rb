@@ -15,16 +15,18 @@ class TournamentsController < ApplicationController
       byes = 4 - player_count
       t_size = 4
     elsif (player_count <= 8)
-      byes = 4 - player_count
+      byes = 8 - player_count
       t_size = 8
     elsif (player_count <= 16)
-      byes = 4 - player_count
+      byes = 16 - player_count
       t_size = 16
     else
       t_size = 'too big'
     end
+    puts "tournament size is" + "#{t_size}"
     byes.times { player_names.push("bye") }
     player_names.shuffle!
+    puts "#{player_names}"
 
     #Actual tournament creation
     if (t_size != 'too big')
@@ -43,7 +45,7 @@ class TournamentsController < ApplicationController
     #Match setup
     if (tournament != nil)
       #Create all  matches for the tournament
-      (t_size-1).times {tournament.matches.create()}
+      (t_size-1).times {tournament.matches.create(status: "active")}
       puts tournament.matches
       #populate the first round with players
       players = []
@@ -51,15 +53,14 @@ class TournamentsController < ApplicationController
        found = players.push(User.find_by(username: p))
       end
       ind = 0
-      puts players[0].id
-      puts players[1].id
-      puts players[2].id
-      puts players[3].id
-      puts t_size
       for i in 0...t_size/2
-        #Does devise not let me access other user ids?
-        tournament.matches[i].player_1 = players[ind].id
-        tournament.matches[i].player_2 = players[ind+1].id
+        #if nil, means that the spot is a bye, not a player
+        if (players[ind] != nil)
+          tournament.matches[i].player_1 = players[ind].id
+        end
+        if (players[ind+1] != nil)
+          tournament.matches[i].player_2 = players[ind+1].id
+        end
         ind += 2
       end
     end
@@ -73,6 +74,7 @@ class TournamentsController < ApplicationController
     @players = session[:players]
     #If the tournament was already created, get the players 
     #from the tournament's matches
+
 
     case @tournament.size
     when 4
