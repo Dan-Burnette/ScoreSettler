@@ -1,6 +1,6 @@
 //Load up the tournament!
 $(document).on('ready', function() {
-	
+
 })
 
 
@@ -40,10 +40,14 @@ $('.player').on('click', function() {
 		if (playerPosition == 0 || playerPosition == 1){
 			var spotToFill = $roundTwoSpots.get(0);
 			var match_id = $('.match_1_id').val();
+			var next_match = $('.match_3_id').val();
+			var next_match_player = 'player1'
 		}
 		else if (playerPosition == 2 || playerPosition == 3){
 			var spotToFill = $roundTwoSpots.get(1);
 			var match_id = $('.match_2_id').val();
+			var next_match = $('.match_3_id').val();
+			var next_match_player = 'player2'
 		}
 		else if(playerPosition == 4 || playerPosition == 5){
 			var spotToFill = winner;
@@ -116,7 +120,9 @@ $('.player').on('click', function() {
 		{
 			tournament : tournament_id,
 			match : match_id,
-			winner : matchWinner
+			winner : matchWinner,
+			next_match :next_match,
+			next_match_player :next_match_player
 		}
 
 	if (whichPlayer == "player1"){	

@@ -31,6 +31,14 @@ class MatchesController < ApplicationController
     match = Match.find(params[:match].to_i)
     match.update(winner_id: winner_id, player_1: player_1, player_2: player_2, tournament_id: tournament_id)
     
+    # Fill the next match with the victor of the other match into p1 or p2 
+    next_match = Match.find(params[:next_match].to_i)
+    next_match_player = params[:next_match_player]
+    if (next_match_player == 'player1')
+      next_match.update(player_1: winner_id)
+    elsif (next_match_player == 'player2')
+      next_match.update(player_2: winner_id)
+    end
 
     redirect_to tournament_path(tournament_id), status: 303
   end
