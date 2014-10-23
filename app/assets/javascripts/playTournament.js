@@ -61,26 +61,38 @@ $('.player').on('click', function() {
 		if (playerPosition == 0 || playerPosition == 1) {
 			var spotToFill = $roundTwoSpots.get(0);
 			var match_id = $('.match_1_id').val();
+			var next_match = $('.match_5_id').val();
+			var next_match_player = 'player1'
 		}
 		else if (playerPosition == 2 || playerPosition == 3) {
 			var spotToFill = $roundTwoSpots.get(1);
 			var match_id = $('.match_2_id').val();
+			var next_match = $('.match_5_id').val();
+			var next_match_player = 'player2'
 		}
 		else if (playerPosition == 4 || playerPosition == 5) {
 			var spotToFill = $roundTwoSpots.get(2);
 			var match_id = $('.match_3_id').val();
+			var next_match = $('.match_6_id').val();
+			var next_match_player = 'player1'
 		}
 		else if (playerPosition == 6 || playerPosition == 7) {
 			var spotToFill = $roundTwoSpots.get(3);
 			var match_id = $('.match_4_id').val();
+			var next_match = $('.match_6_id').val();
+			var next_match_player = 'player2'
 		}
 		else if (playerPosition == 8 || playerPosition == 9) {
 			var spotToFill = $roundThreeSpots.get(0);
 			var match_id = $('.match_5_id').val();
+			var next_match = $('.match_7_id').val();
+			var next_match_player = 'player1'
 		}
 		else if (playerPosition == 10 || playerPosition == 11) {
 			var spotToFill = $roundThreeSpots.get(1);
 			var match_id = $('.match_6_id').val();
+			var next_match = $('.match_7_id').val();
+			var next_match_player = 'player2'
 		}
 		else if (playerPosition == 12 || playerPosition == 13) {
 			var spotToFill = winner;

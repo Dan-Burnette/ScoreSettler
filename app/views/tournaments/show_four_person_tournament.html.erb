@@ -19,13 +19,13 @@
   <div class="row tournament-container">
 
       <div class="large-2 columns">
-        <div class="row player even start text-center"><%=@players[0]%></div>
+        <div class="row player even start text-center"><%= @all_player_spots[0] != nil ? @all_player_spots[0] : "bye" %></div>
         <div class="row ">&nbsp</div>
-        <div class="row player odd start text-center"><%=@players[1]%></div>
+        <div class="row player odd start text-center"><%=@all_player_spots[1] != nil ? @all_player_spots[1] : "bye"%></div>
         <div class="row ">&nbsp</div>
-        <div class="row player even start text-center"><%=@players[2]%></div>
+        <div class="row player even start text-center"><%=@all_player_spots[2] != nil ? @all_player_spots[2] : "bye"%></div>
         <div class="row ">&nbsp</div>
-        <div class="row player odd start text-center"><%=@players[3]%></div>
+        <div class="row player odd start text-center"><%=@all_player_spots[3] != nil ? @all_player_spots[3] : "bye"%></div>
         <div class="row ">&nbsp</div>
       </div>
 

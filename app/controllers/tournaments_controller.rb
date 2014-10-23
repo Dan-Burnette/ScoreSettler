@@ -72,21 +72,22 @@ class TournamentsController < ApplicationController
     @tournament = Tournament.find(params[:id])
     @matches = @tournament.matches
     #If tournament was just created we have the players
-    @players = []
-    @matches.each do |m|
-      p1 = User.find_by(id: m.player_1.to_i)
-      if (p1 != nil)
-        @players.push(p1.username)
-      else
-        @players.push("bye")
-      end
-      p2 = User.find_by(id: m.player_2.to_i)
-      if (p2 != nil)
-        @players.push(p2.username)
-      else
-        @players.push("bye")
-      end
-    end
+    # @players = []
+    # @matches.each do |m|
+    #   p1 = User.find_by(id: m.player_1.to_i)
+    #   if (p1 != nil)
+    #     @players.push(p1.username)
+    #   else
+    #     @players.push("bye")
+    #   end
+    #   p2 = User.find_by(id: m.player_2.to_i)
+    #   if (p2 != nil)
+    #     @players.push(p2.username)
+    #   else
+    #     @players.push("bye")
+    #   end
+    # end
+
 
     #send in the names in order of where they should be
     #so that they can be populated in 
