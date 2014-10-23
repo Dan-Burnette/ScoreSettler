@@ -1,3 +1,12 @@
+//Load up the tournament!
+
+
+
+//////
+
+
+
+
 
 //Making buttons illuminate upon clicks appropriately and send AJAX to 
 //server to update the state of the tournament
@@ -100,11 +109,12 @@ $('.player').on('click', function() {
 
 	//AJAX to update the tournament's matches on the server
 	var tournament_id = $('.tournament_id').val();
+	var matchWinner = $(spotToFill).text(); 
 	var matchUpdateJSON = 
 		{
 			tournament : tournament_id,
 			match : match_id,
-			winner : playerName 
+			winner : matchWinner
 		}
 
 	if (whichPlayer == "player1"){	
