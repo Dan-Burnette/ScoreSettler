@@ -82,7 +82,16 @@ $('.player').on('click', function() {
 
 	var playerName = $(this).text();
 	var otherPlayerName = $(otherPlayer).text();
-	$(spotToFill).text(playerName);
+	if (playerName != 'bye'){
+		$(spotToFill).text(playerName);
+	}
+	//Stop bye from displaying as a winner
+	else {
+		$(spotToFill).text(otherPlayerName);
+			$(this).css('background-color', 'red');
+			$(otherPlayer).css('background-color', 'green');
+	}
+
 
 	//Special case, illuminate champion spot upon choosing victor of finals 
 	if (playerPosition+1 == winnerPosition || playerPosition+2 == winnerPosition) {
