@@ -31,7 +31,8 @@ class MatchesController < ApplicationController
     match = Match.find(params[:match].to_i)
     match.update(winner_id: winner_id, player_1: player_1, player_2: player_2, tournament_id: tournament_id)
     
-    redirect_to :back
+
+    redirect_to tournament_path(tournament_id), status: 303
   end
 
   #Never need to show an individual match
