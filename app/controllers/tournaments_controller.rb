@@ -56,10 +56,10 @@ class TournamentsController < ApplicationController
       for i in 0...t_size/2
         #if nil, means that the spot is a bye, not a player
         if (players[ind] != nil)
-          tournament.matches[i].player_1 = players[ind].id
+          tournament.matches[i].update(player_1: players[ind].id)
         end
         if (players[ind+1] != nil)
-          tournament.matches[i].player_2 = players[ind+1].id
+          tournament.matches[i].update(player_2: players[ind+1].id)
         end
         ind += 2
       end
@@ -72,10 +72,41 @@ class TournamentsController < ApplicationController
     @tournament = Tournament.find(params[:id])
     @matches = @tournament.matches
     #If tournament was just created we have the players
-    @players = session[:players]
-    #If the tournament was already created, get the players 
-    #from the tournament's matches
+    @players = []
+    @matches.each do |m|
+      p1 = User.find_by(id: m.player_1.to_i)
+      if (p1 != nil)
+        @players.push(p1.username)
+      else
+        @players.push("bye")
+      end
+      p2 = User.find_by(id: m.player_2.to_i)
+      if (p2 != nil)
+        @players.push(p2.username)
+      else
+        @players.push("bye")
+      end
+    end
 
+    #send in the names in order of where they should be
+    #so that they can be populated in 
+    #the view if tournament is in progress
+    @all_player_spots = [];
+    for i in 0...@tournament.size-1
+      p1 = User.find_by(id: (@matches[i].player_1.to_i))
+      p2 = User.find_by(id: (@matches[i].player_2.to_i))
+      if p1
+        @all_player_spots.push(p1.username)
+      else
+        @all_player_spots.push(nil)
+      end
+      if p2
+        @all_player_spots.push(p2.username)
+      else
+        @all_player_spots.push(nil)
+      end
+    end
+    puts @all_player_spots.inspect
 
     case @tournament.size
     when 4

@@ -104,19 +104,35 @@
 
       <div class="custom-width-1 columns">
         <div class="row ">&nbsp</div>
-        <div class="row player even round2 text-center">round 1 victor</div>
+        <% if @all_player_spots[8] %>
+          <div class="row player even round2 text-center"><%=@all_player_spots[8]%></div>
+        <% else %>
+          <div class="row player even round2 text-center">round 1 victor</div>
+        <% end %>
         <div class="row ">&nbsp</div>  
         <div class="row ">&nbsp</div>
         <div class="row ">&nbsp</div>
-        <div class="row player odd round2 text-center">round 1 victor</div>
+        <% if @all_player_spots[9] %>
+          <div class="row player odd round2 text-center"><%=@all_player_spots[9]%></div>
+        <% else %>
+          <div class="row player odd round2 text-center">round 1 victor</div>
+        <% end %>
         <div class="row ">&nbsp</div>
         <div class="row ">&nbsp</div>
         <div class="row ">&nbsp</div>
-        <div class="row player even round2 text-center">round 1 victor</div>
+        <% if @all_player_spots[10] %>
+          <div class="row player even round2 text-center"><%=@all_player_spots[10]%></div>
+        <% else %>
+          <div class="row player even round2 text-center">round 1 victor</div>
+        <% end %>
         <div class="row ">&nbsp</div>  
         <div class="row ">&nbsp</div>
         <div class="row ">&nbsp</div>
-        <div class="row player odd round2 text-center">round 1 victor</div>
+        <% if @all_player_spots[11] %>
+          <div class="row player odd round2 text-center"><%=@all_player_spots[11]%></div>
+        <% else %>
+          <div class="row player odd round2 text-center">round 1 victor</div>
+        <% end %>
         <div class="row ">&nbsp</div>
         <div class="row ">&nbsp</div>
       </div>
@@ -159,7 +175,11 @@
         <div class="row">&nbsp</div>
         <div class="row">&nbsp</div>
         <div class="row">&nbsp</div>
-        <div class="row player even winner text-center">round 2 victor</div>
+        <% if @all_player_spots[12] %>
+          <div class="row player even round2 text-center"><%=@all_player_spots[12]%></div>
+        <% else %>
+          <div class="row player even round2 text-center">round 2 victor</div>
+        <% end %>
         <div class="row">&nbsp</div>
         <div class="row">&nbsp</div>
         <div class="row">&nbsp</div>      
@@ -167,7 +187,11 @@
         <div class="row">&nbsp</div>
         <div class="row">&nbsp</div>
         <div class="row">&nbsp</div>
-        <div class="row player odd winner text-center">round 2 victor</div>
+        <% if @all_player_spots[13] %>
+          <div class="row player odd round2 text-center"><%=@all_player_spots[13]%></div>
+        <% else %>
+          <div class="row player odd round2 text-center">round 2 victor</div>
+        <% end %>
         <div class="row">&nbsp</div>
         <div class="row">&nbsp</div>
         <div class="row">&nbsp</div>      

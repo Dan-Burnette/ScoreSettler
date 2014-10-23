@@ -1,5 +1,7 @@
 //Load up the tournament!
-
+$(document).on('ready', function() {
+	
+})
 
 
 //////

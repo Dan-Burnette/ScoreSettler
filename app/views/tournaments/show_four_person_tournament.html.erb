@@ -60,14 +60,23 @@
           <div class="line">&nbsp</div>
         </div>
       </div>
-
+      <%= puts"player spots" %>
+      <%= puts @all_player_spots %>
       <div class="large-2 columns">
         <div class="row ">&nbsp</div>
-        <div class="row player even round2 text-center">round 1 victor</div>
+        <% if @all_player_spots[4] %>
+          <div class="row player even round2 text-center"><%=@all_player_spots[4]%></div>
+        <% else %>
+          <div class="row player even round2 text-center">round 1 victor</div>
+        <% end %>
         <div class="row ">&nbsp</div>  
         <div class="row ">&nbsp</div>
         <div class="row ">&nbsp</div>
-        <div class="row player odd round2 text-center">round 1 victor</div>
+        <% if @all_player_spots[5] %>
+          <div class="row player odd round2 text-center"><%=@all_player_spots[5]%></div>
+        <% else %>
+          <div class="row player odd round2 text-center">round 1 victor</div>
+        <% end %>
         <div class="row ">&nbsp</div>
         <div class="row ">&nbsp</div>
       </div>
@@ -94,7 +103,11 @@
         <div class="row">&nbsp</div>
         <div class="row">&nbsp</div>
         <div class="row">&nbsp</div>
-        <div class="row player winner text-center">Winner</div>
+         <% if @all_player_spots[6] %>
+          <div class="row player winner text-center"><%=@all_player_spots[6]%></div>
+        <% else %>
+          <div class="row player winner text-center">Winner</div>
+        <% end %>
         <div class="row">&nbsp</div>
         <div class="row">&nbsp</div>
         <div class="row">&nbsp</div>      
