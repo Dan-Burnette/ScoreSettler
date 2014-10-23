@@ -3,7 +3,7 @@
 //server to update the state of the tournament
 
 $('.player').on('click', function() {
-
+	var onLastMatch = false;
 	var $allPlayerSpots = $('.player');
 	var tournamentSize = ($allPlayerSpots.size()+1)/2;
 	var playerPosition = $allPlayerSpots.index($(this));
@@ -37,6 +37,7 @@ $('.player').on('click', function() {
 		else if(playerPosition == 4 || playerPosition == 5){
 			var spotToFill = winner;
 			var match_id = $('.match_3_id').val();
+			onLastMatch = true;
 		}
 	}
 	else if (tournamentSize == 8){
@@ -69,6 +70,7 @@ $('.player').on('click', function() {
 		else if (playerPosition == 12 || playerPosition == 13) {
 			var spotToFill = winner;
 			var match_id = $('.match_7_id').val();
+			onLastMatch = true;
 		}
 	}
 	else if (tournamentSize == 16){
@@ -104,18 +106,27 @@ $('.player').on('click', function() {
 		matchUpdateJSON.player1 = otherPlayerName;
 		matchUpdateJSON.player2 = playerName;
 	}
+
 	console.log(matchUpdateJSON);
 
 	$.ajax({
 		url: '/tournaments/' + tournament_id + '/matches/' + match_id,
 		dataType: 'json',
 		type: 'PUT',
-		data: matchUpdateJSON,
-		success: function(){
-			
-		}
-
+		data: matchUpdateJSON
 	})
+
+	//If on the last match, AJAX to update the tournament winner
+	if (onLastMatch){
+		var tournamentUpdateJSON = {winner: $(winner).text()};
+		console.log(tournamentUpdateJSON);
+		$.ajax({
+			url: '/tournaments/' + tournament_id,
+			dataType: 'json',
+			type: 'PUT',
+			data: tournamentUpdateJSON
+		})
+	}
 
 });
 

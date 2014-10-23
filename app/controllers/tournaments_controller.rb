@@ -93,7 +93,10 @@ class TournamentsController < ApplicationController
   end
 
   def update
-    redirect_to :back
+    tournament = Tournament.find(params[:id])
+    champion_id = User.find_by(username: params[:winner]).id
+    tournament.update(champion_id: champion_id)
+
   end
 
   def tournament_params
