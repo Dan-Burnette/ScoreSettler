@@ -6,12 +6,19 @@ class MembershipsController < ApplicationController
     user_id = User.find_by(username: params[:username]).id
     group_id = params[:group_id].to_i
     status = params[:status]
-    pending_membership = Membership.create(group_id: group_id, user_id: user_id, status: status)
-    if (pending_membership.save)
-      redirect_to :back
+    #prevent duplicate memberships
+    isExisting = Membership.where("group_id = ? AND user_id = ?", group_id, user_id)[0]
+    if (isExisting == nil)
+      pending_membership = Membership.new(group_id: group_id, user_id: user_id, status: status)
+      if (pending_membership.save)
+        puts "SAVING THE MEMBRSHIP!!!!!!!!!!!!!!!------"
+        redirect_to :back, status: 303
+      else
+        #need to display error
+        redirect_to :back, status: 303
+      end
     else
-      #need to display error
-      redirect_to :back
+      redirect_to :back, status: 303
     end
   end
 

@@ -10,7 +10,6 @@ class UsersController < ApplicationController
     @user = current_user
     @user_groups = @user.groups
 
-
     @active_groups = []
     @pending_groups = []
     @pending_memberships = []

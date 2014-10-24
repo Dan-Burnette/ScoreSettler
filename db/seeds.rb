@@ -52,6 +52,13 @@ mrNine.username = "mrNine"
 mrNine.password = "spookedya"
 mrNine.save!
 
+
+guy = User.new
+guy.email = "guy@guy.com"
+guy.username = "guy"
+guy.password = "guyguyguy"
+guy.save!
+
 #spagett is the not a member
 MKS = Group.create(name: "MKS Gamers", admin_id: 1)
 MKS.memberships.create(user_id: dan.id, status: "active")
@@ -66,5 +73,8 @@ MKS.memberships.create(user_id: mrNine.id, status: "active")
 
 
 
+
+
+
 GroupToJoin = Group.create(name: "TestGroup1", admin_id: 1)
-GroupToJoin.memberships.create(user_id: dan.id)
+GroupToJoin.memberships.create(user_id: dan.id, status: "active")
