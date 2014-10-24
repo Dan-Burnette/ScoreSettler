@@ -2,39 +2,64 @@
 <h1><%= @group.name %> </h1>
 
 <!-- If the user is admin of the group allow them to create a tournament -->
-<% if current_user.id == @group.admin_id %>
-	<h3>Start a new tournament for this group</h3>
-	<%= form_tag tournaments_path, method: :POST do %>
-		<label>Tournament Name </label>
-		<input name="tournament[name]" type="text" value="" />
-		<label>What game are you playing?</label>
-		<input name="tournament[game_type]" type="text" value="" />
-		<label><h5>Participants</h5></label>
-		<label><h6>Tournament sizes are 4,8, and 16. Selections not matching this will have byes added appropriately </h6></label>
-		<label class="player-counter"> Players selected: 0</label>
-		<%@group_members.each_with_index do |member,i| %>
-			<label>
-				<input type="checkbox" name="players[]" value=<%=member.username%>>
-				<%=member.username%>
-			</label>
+<section class="large-4 column admin-view">
+	<% if current_user.id == @group.admin_id %>
+		<h3>Start a new tournament for this group</h3>
+		<%= form_tag tournaments_path, method: :POST do %>
+			<label>Tournament Name </label>
+			<input name="tournament[name]" type="text" value="" />
+			<label>What game are you playing?</label>
+			<input name="tournament[game_type]" type="text" value="" />
+			<label><h5>Participants</h5></label>
+			<label><h6>Tournament sizes are 4,8, and 16. Selections not matching this will have byes added appropriately </h6></label>
+			<label class="player-counter"> Players selected: 0</label>
+			<%@group.users.each_with_index do |user,i| %>
+				<label>
+					<input type="checkbox" name="players[]" value=<%=user.username%>>
+					<%=user.username%>
+				</label>
+			<% end %>
+			<input name="tournament[group_id]" type="hidden" value=<%=@group.id%> />
+			<input type="submit" />
 		<% end %>
-		<input name="tournament[group_id]" type="hidden" value=<%=@group.id%> />
-		<input type="submit" />
 	<% end %>
-<% end %>
+</section>
 
-<!-- Link to in progress tournaments -->
-<h3>Active Tournaments</h3>
-<% @incomplete_tournaments.each do |t| %>
-	<ul>
-		<li> <%= link_to t.name, tournament_path(t.id) , method: :GET %> </li>
-	</ul>
-<% end %>
+<section class="large-4 column tournament-listing">
+	<!-- Link to in progress tournaments -->
+	<h3>Active Tournaments</h3>
+	<% @incomplete_tournaments.each do |t| %>
+		<ul>
+			<li> <%= link_to t.name, tournament_path(t.id) , method: :GET %> </li>
+		</ul>
+	<% end %>
 
-<!-- Display old tournaments and their victors -->
-<h3>Completed Tournaments</h3>
-<% @complete_tournaments.each_with_index do |t,i| %>
-	<ul> 
-		<li> <h5><%= t.name %></h5> <h5> Victor : <%=@champs[i].username%></h5> </li>
-	</ul>
-<% end %>
+	<!-- Display old tournaments and their victors -->
+	<h3>Completed Tournaments</h3>
+	<% @complete_tournaments.each_with_index do |t,i| %>
+		<ul> 
+			<li> <h5><%= t.name %></h5> <h5> Victor : <%=@champs[i].username%></h5> </li>
+		</ul>
+	<% end %>
+</section>
+
+<section class="large-4 column stats">
+	<table class="stats-table"> 
+		<thead>
+			<th>Player</th>
+			<th>Match Wins</th>
+			<th>Match Losses </th>
+			<th> Win/Loss </th>
+			<th>Tournament Wins </th>
+		</thead>
+		<% @group.users.each_with_index do |user,i| %>
+			<tr>
+				<td> <%= user.username %> </td>
+				<td> <%= @all_user_wins[i] %> </td>
+				<td> <%= @all_user_losses[i]%></td>
+				<td> <%= @all_user_win_loss_ratios[i]  %></td>
+			</tr>
+		<% end %>
+	</table>
+
+</section>

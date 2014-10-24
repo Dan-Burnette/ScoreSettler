@@ -36,7 +36,7 @@ html {
 .center {
 	width: 80%;
 	height: 10%;
-	background-color: red;
+	background-color: #3D3D29;
 	margin-left: 7.7em;
 	margin-top: -.75em;
 }
@@ -45,14 +45,14 @@ html {
 .wider-center {
 	width: 87%;
 	height: 10%;
-	background-color: red;
+	background-color: #3D3D29;
 	margin-left: 7.7em;
 	margin-top: -.75em;
 }
 
 
 .player-line {
-	background-color: green;
+	background-color: #3D3D29;
 	width: 50%;
 	margin-left: -2.5em;
 	margin-top: -.35em;
@@ -69,21 +69,21 @@ html {
 
 
 .connector {
-	background-color: blue;
+	background-color: #3D3D29;
 	width: 5%;
 	height: 3em;
 	margin-left: 7.7em;
 }
 
 .bigger-connector {
-	background-color: blue;
+	background-color: #3D3D29;
 	width: 5%;
 	height: 7em;
 	margin-left: 7.7em;
 }
 
 .even-bigger-connector {
-	background-color: blue;
+	background-color: #3D3D29;
 	width: 5%;
 	height: 15em;
 	margin-left: 7.7em;	

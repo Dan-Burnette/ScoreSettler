@@ -36,7 +36,7 @@ html {
 .center {
 	width: 80%;
 	height: 10%;
-	background-color: red;
+	background-color: #3D3D29;
 	margin-left: 7.7em;
 	margin-top: -.75em;
 }
@@ -45,14 +45,14 @@ html {
 .wider-center {
 	width: 87%;
 	height: 10%;
-	background-color: red;
+	background-color: #3D3D29;
 	margin-left: 7.7em;
 	margin-top: -.75em;
 }
 
 
 .player-line {
-	background-color: green;
+	background-color: #3D3D29;
 	width: 50%;
 	margin-left: -2.5em;
 	margin-top: -.35em;
@@ -69,21 +69,21 @@ html {
 
 
 .connector {
-	background-color: blue;
+	background-color: #3D3D29;
 	width: 5%;
 	height: 3em;
 	margin-left: 7.7em;
 }
 
 .bigger-connector {
-	background-color: blue;
+	background-color: #3D3D29;
 	width: 5%;
 	height: 7em;
 	margin-left: 7.7em;
 }
 
 .even-bigger-connector {
-	background-color: blue;
+	background-color: #3D3D29;
 	width: 5%;
 	height: 15em;
 	margin-left: 7.7em;	
@@ -101,21 +101,21 @@ html {
 }
 
 .sixteen-player-line-1 {
-	background-color: green;
+	background-color: #3D3D29;
 	width: 80%;
 	margin-left: -2.5em;
 	margin-top: -.35em;
 }
 
 .sixteen-player-line-2 {
-	background-color: green;
+	background-color: #3D3D29;
 	width: 81%;
 	margin-left: -2.5em;
 	margin-top: -.4em;
 }
 
 .sixteen-player-line-3 {
-	background-color: green;
+	background-color: #3D3D29;
 	width: 81%;
 	margin-left: -2.5em;
 	margin-top: -0.2em;
@@ -131,7 +131,7 @@ html {
 }
 
 .sixteen-connector-3 {
-	background-color: blue;
+	background-color: #3D3D29;
 	width: 5%;
 	height: 30.5em;
 	margin-left: 7.7em;	
@@ -145,7 +145,7 @@ html {
 .sixteen-center-line-4 {
     width: 87%;
 	height: 10%;
-	background-color: red;
+	background-color: #3D3D29;
 	margin-left: 7.7em;
 }
 
