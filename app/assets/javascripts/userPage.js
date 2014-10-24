@@ -13,5 +13,5 @@ $('.accept-invite').on('click', function() {
 			type: 'PUT',
 			data: JSON
 		})
-	$window.reload();
+	window.location.reload(true);
 })

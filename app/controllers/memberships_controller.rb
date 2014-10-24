@@ -11,7 +11,6 @@ class MembershipsController < ApplicationController
     if (isExisting == nil)
       pending_membership = Membership.new(group_id: group_id, user_id: user_id, status: status)
       if (pending_membership.save)
-        puts "SAVING THE MEMBRSHIP!!!!!!!!!!!!!!!------"
         redirect_to :back, status: 303
       else
         #need to display error
@@ -28,7 +27,7 @@ class MembershipsController < ApplicationController
     status = params[:status]
     membership = Membership.find(params[:id])
     membership.update(status: status)
-    redirect_to :back
+    redirect_to :back, status: 303
   end
 
   #Kick a user out a group or remove himself from a group
