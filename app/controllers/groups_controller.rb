@@ -49,7 +49,8 @@ class GroupsController < ApplicationController
           user_win_loss_ratio = 0.0
         end
       else
-        user_win_loss_ratio = user_match_wins.to_f/user_match_losses.to_f
+        # f2 = (f*100).to_i / 100.0
+        user_win_loss_ratio = ((user_match_wins.to_f/user_match_losses.to_f)*100).to_i / 100.0
       end
       @all_user_win_loss_ratios.push(user_win_loss_ratio)
     end
