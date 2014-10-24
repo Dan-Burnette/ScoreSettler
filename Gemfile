@@ -1,5 +1,7 @@
 source 'https://rubygems.org'
 
+gem 'jquery-tablesorter'
+
 gem 'foundation-rails'
 #User Authentication
 gem 'devise'
