@@ -1,6 +1,7 @@
 class MembershipsController < ApplicationController
   before_action :authenticate_user!
 
+  #called on invite
   def create
     user_id = User.find_by(username: params[:username]).id
     group_id = params[:group_id].to_i
@@ -14,19 +15,19 @@ class MembershipsController < ApplicationController
     end
   end
 
+  def update
+    user_id = params[:user_id]
+    group_id = params[:group_id]
+    status = params[:status]
+    membership = Membership.find(params[:id])
+    membership.update(status: status)
+    redirect_to :back
+  end
+
   #Kick a user out a group or remove himself from a group
   def destroy
   end
 
-  # def invite
-  #   user_id = User.find_by(username: params[:username]).id
-  #   group_id = params[:group_id].to_i
-  #   pending_membership = Membership.new(group_id: group_id, user_id: user_id, status: "pending")
-  #   if (pending_membership.save)
-  #     redirect_to :back
-  #   end
-  #   redirect_to :back
-  # end
 
   def membership_params
     params.require(:membership).permit(:user_id, :group_id, :status)

@@ -8,10 +8,13 @@
 
 
 <h2> Pending Group Invites </h2>
-<% @pending_groups.each do |group| %>
+<% @pending_groups.each_with_index do |group,i| %>
 	<ul>
 	<li> <%=group.name%> 
 		 <button class="accept-invite">Accept invite </button> 
+		 <input class="group-id" type="hidden" value=<%=group.id%>> 
+		 <input class="user-id" type="hidden" value=<%=current_user.id%>>
+		 <input class="membership-id" type="hidden" value=<%=@pending_memberships[i].id%>>
 	</li>
 	</ul>
 <% end %>

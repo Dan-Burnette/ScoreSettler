@@ -13,6 +13,7 @@ class UsersController < ApplicationController
 
     @active_groups = []
     @pending_groups = []
+    @pending_memberships = []
     @user.memberships.each do |m|
       if (m.status == "active")
         group = Group.find(m.group_id)
@@ -20,6 +21,7 @@ class UsersController < ApplicationController
       elsif (m.status == "pending")
         group = Group.find(m.group_id)
         @pending_groups.push(group)
+        @pending_memberships.push(m)
       end
     end
   end

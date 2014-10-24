@@ -54,14 +54,14 @@ mrNine.save!
 
 #spagett is the not a member
 MKS = Group.create(name: "MKS Gamers", admin_id: 1)
-MKS.memberships.create(user_id: dan.id)
-MKS.memberships.create(user_id: bill.id)
-MKS.memberships.create(user_id: bilbo.id)
-MKS.memberships.create(user_id: mike.id)
-MKS.memberships.create(user_id: billybob.id)
-MKS.memberships.create(user_id: shannon.id)
-MKS.memberships.create(user_id: john.id)
-MKS.memberships.create(user_id: mrNine.id)
+MKS.memberships.create(user_id: dan.id, status: "active")
+MKS.memberships.create(user_id: bill.id, status: "active")
+MKS.memberships.create(user_id: bilbo.id, status: "active")
+MKS.memberships.create(user_id: mike.id, status: "active")
+MKS.memberships.create(user_id: billybob.id, status: "active")
+MKS.memberships.create(user_id: shannon.id, status: "active")
+MKS.memberships.create(user_id: john.id, status: "active")
+MKS.memberships.create(user_id: mrNine.id, status: "active")
 
 
 
