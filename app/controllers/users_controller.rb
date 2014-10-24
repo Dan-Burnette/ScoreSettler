@@ -11,5 +11,4 @@ class UsersController < ApplicationController
     @user_groups = @user.groups
   end
 
-
 end

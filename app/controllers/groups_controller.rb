@@ -12,10 +12,9 @@ class GroupsController < ApplicationController
   end
 
   #For showing a specific group page.
-  #Should display a list of tournaments which can be clicked
-  #Then the tournament shows all its matches
   def show
     @group = Group.find(params[:id])
+
     # Tournament getting logic
     tournaments = @group.tournaments
     @complete_tournaments = []
@@ -68,10 +67,6 @@ class GroupsController < ApplicationController
       end
       @all_user_win_loss_ratios.push(user_win_loss_ratio)
     end
-
-
-
-
     
   end
 

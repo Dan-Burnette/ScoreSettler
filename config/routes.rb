@@ -8,6 +8,12 @@ Rails.application.routes.draw do
     resources :matches
   end
 
+  resources :invites
+
   root to: 'users#show'
+
+  put '/invite', to: 'users#invite'
+
+
   
 end

@@ -1,9 +1,10 @@
 
 <h1><%= @group.name %> </h1>
 
-<!-- If the user is admin of the group allow them to create a tournament -->
+<!-- If the user is admin of the group show them the "admin console" -->
 <section class="large-4 column admin-view">
 	<% if current_user.id == @group.admin_id %>
+	<!-- Creating a new tournament -->
 		<h3>Start a new tournament for this group</h3>
 		<%= form_tag tournaments_path, method: :POST do %>
 			<label>Tournament Name </label>
@@ -22,6 +23,11 @@
 			<input name="tournament[group_id]" type="hidden" value=<%=@group.id%> />
 			<input type="submit" />
 		<% end %>
+		<!--Inviting other users to your group  -->
+		<label>Invite a user to your group </label>
+			<input class="user-to-invite" type="text" placeholder="username">
+			<input class="group-id" type="hidden" value=<%=@group.id%> >
+			<button class="invite-user"> Invite</button>
 	<% end %>
 </section>
 
