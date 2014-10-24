@@ -9,6 +9,19 @@ class UsersController < ApplicationController
   def show
     @user = current_user
     @user_groups = @user.groups
+
+
+    @active_groups = []
+    @pending_groups = []
+    @user.memberships.each do |m|
+      if (m.status == "active")
+        group = Group.find(m.group_id)
+        @active_groups.push(group)
+      elsif (m.status == "pending")
+        group = Group.find(m.group_id)
+        @pending_groups.push(group)
+      end
+    end
   end
 
 end

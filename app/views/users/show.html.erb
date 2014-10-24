@@ -1,7 +1,17 @@
 <h2>Your Groups</h2>
 
-<% @user_groups.each do |group| %>
+<% @active_groups.each do |group| %>
 	<ul> 
 		<li> <%= link_to group.name, group_path(group.id) , method: :GET  %> </li>
+	</ul>
+<% end %>
+
+
+<h2> Pending Group Invites </h2>
+<% @pending_groups.each do |group| %>
+	<ul>
+	<li> <%=group.name%> 
+		 <button class="accept-invite">Accept invite </button> 
+	</li>
 	</ul>
 <% end %>
