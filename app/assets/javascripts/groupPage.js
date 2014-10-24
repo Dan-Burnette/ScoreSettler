@@ -23,4 +23,10 @@ $('.invite-user').on('click', function() {
 		data: JSON
 	})
 
+	$(this).text("Sent!");
+	var me = this;
+	setTimeout(function(){
+		$(me).text("Invite");
+	}, 1000);
+
 })

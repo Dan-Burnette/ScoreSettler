@@ -8,7 +8,14 @@ class GroupsController < ApplicationController
 
   #for creating a new group
   def create
-    
+    group = Group.new(group_params)
+    if (group.save)
+      #need to also create your own membership
+      Membership.create(user_id: current_user.id, group_id: group.id, status: "active")
+      redirect_to user_path(current_user.id)
+    else
+      #error
+    end
   end
 
   #For showing a specific group page.
@@ -75,7 +82,7 @@ class GroupsController < ApplicationController
   # end
 
   def group_params
-    params.require(:group).permit(:name)
+    params.require(:group).permit(:name, :admin_id)
   end
 
 
