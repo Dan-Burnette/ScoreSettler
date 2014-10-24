@@ -14,11 +14,12 @@ $('.invite-user').on('click', function() {
 	var group_id = $('.group-id').val();
 	console.log(group_id);
 	var JSON = {username : username,
-				group_id : group_id};
+				group_id : group_id,
+				status : "pending"};
 	$.ajax({
-		url: '/invite',
+		url: '/memberships',
 		dataType: 'json',
-		type: 'PUT',
+		type: 'POST',
 		data: JSON
 	})
 

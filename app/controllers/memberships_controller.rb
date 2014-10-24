@@ -2,11 +2,15 @@ class MembershipsController < ApplicationController
   before_action :authenticate_user!
 
   def create
-    membership = Membership.new(membership_params)
-    if (membership.save)
-      redirect_to user_path
+    user_id = User.find_by(username: params[:username]).id
+    group_id = params[:group_id].to_i
+    status = params[:status]
+    pending_membership = Membership.create(group_id: group_id, user_id: user_id, status: status)
+    if (pending_membership.save)
+      redirect_to :back
     else
-      #display error
+      #need to display error
+      redirect_to :back
     end
   end
 
@@ -14,8 +18,18 @@ class MembershipsController < ApplicationController
   def destroy
   end
 
+  # def invite
+  #   user_id = User.find_by(username: params[:username]).id
+  #   group_id = params[:group_id].to_i
+  #   pending_membership = Membership.new(group_id: group_id, user_id: user_id, status: "pending")
+  #   if (pending_membership.save)
+  #     redirect_to :back
+  #   end
+  #   redirect_to :back
+  # end
+
   def membership_params
-    params.require(:membership).permit(:user_id, :group_id)
+    params.require(:membership).permit(:user_id, :group_id, :status)
   end
 
 

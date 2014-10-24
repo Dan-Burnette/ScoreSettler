@@ -3,7 +3,7 @@ Rails.application.routes.draw do
 
   resources :users, :except => [:index]
   resources :groups
-
+  resources :memberships
   resources :tournaments do
     resources :matches
   end
@@ -12,7 +12,7 @@ Rails.application.routes.draw do
 
   root to: 'users#show'
 
-  put '/invite', to: 'users#invite'
+
 
 
   
