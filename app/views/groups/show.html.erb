@@ -64,4 +64,30 @@
 		<% end %>
 	</table>
 
+	<h3> Head to Head</h3>
+
+	<form> 
+		<select> 
+			<% @group.users.each do |user| %>
+				<option value="<%=user.username%>"> <%=user.username%> </option>
+			<% end %>
+		</select>
+		<p>VS<p>
+		<select> 
+			<% @group.users.each do |user| %>
+				<option value="<%=user.username%>"> <%=user.username%> </option>
+			<% end %>
+		</select>
+		<!-- On click, send AJAX to get the info needed for the table -->
+		<input type="submit" class="head-to-head-submit">
+
+		<table class="head-to-head">
+			<thead> 
+				<th>Meetings</th>
+				<th>Victories</th>
+				<th>Defeats</th>
+			</thead>
+		</table>
+	</form>
+
 </section>
