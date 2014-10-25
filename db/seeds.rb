@@ -59,6 +59,30 @@ guy.username = "guy"
 guy.password = "guyguyguy"
 guy.save!
 
+bob= User.new
+bob.email = "bob@bob.com"
+bob.username = "bob"
+bob.password = "bobbobob"
+bob.save!
+
+peach = User.new
+peach.email = "peach@peach.com"
+peach.username = "peach"
+peach.password = "peachpeachpeach"
+peach.save!
+
+mario = User.new
+mario.email = "mario@mario.com"
+mario.username = "mario"
+mario.password = "mariomariomario"
+mario.save!
+
+bowser = User.new
+bowser.email = "bowser@bowser.com"
+bowser.username = "bowser"
+bowser.password = "bowserbowserbowser"
+bowser.save!
+
 #spagett is the not a member
 MKS = Group.create(name: "MKS Gamers", admin_id: 1)
 MKS.memberships.create(user_id: dan.id, status: "active")
@@ -69,12 +93,14 @@ MKS.memberships.create(user_id: billybob.id, status: "active")
 MKS.memberships.create(user_id: shannon.id, status: "active")
 MKS.memberships.create(user_id: john.id, status: "active")
 MKS.memberships.create(user_id: mrNine.id, status: "active")
+MKS.memberships.create(user_id: bob.id, status: "active")
+MKS.memberships.create(user_id: peach.id, status: "active")
+MKS.memberships.create(user_id: mario.id, status: "active")
+MKS.memberships.create(user_id: bowser.id, status: "active")
 
+GroupToJoin = Group.create(name: "UIOWA Gamers", admin_id: 1)
+GroupToJoin.memberships.create(user_id: bob.id, status: "active")
+GroupToJoin.memberships.create(user_id: peach.id, status: "active")
+GroupToJoin.memberships.create(user_id: mario.id, status: "active")
+GroupToJoin.memberships.create(user_id: bowser.id, status: "active")
 
-
-
-
-
-
-GroupToJoin = Group.create(name: "TestGroup1", admin_id: 1)
-GroupToJoin.memberships.create(user_id: dan.id, status: "active")

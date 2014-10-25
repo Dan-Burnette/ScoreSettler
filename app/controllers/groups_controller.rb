@@ -37,13 +37,22 @@ class GroupsController < ApplicationController
       end
     end
 
+    #Only grab group users with active memberships (not pending)
+    @group_users = []
+    @group.users.each do |u|
+      membership = Membership.where("user_id = ? AND group_id = ? AND status = ?", u.id, @group.id, "active")[0]
+      if (membership != nil)
+        @group_users.push(u)
+      end
+    end
+
     #STATS getting logic
     @all_user_wins = []
     @all_user_losses = []
     @all_user_win_loss_ratios = []
     @all_user_tournament_wins = []
 
-    @group.users.each do |user|
+    @group_users.each do |user|
        @all_user_wins.push(0)
        @all_user_losses.push(0)
        user_tournament_wins = Tournament.where("champion_id = ? AND group_id = ?", user.id, @group.id).count
@@ -51,7 +60,7 @@ class GroupsController < ApplicationController
     end
 
     @group.tournaments.each_with_index do |t, i|
-      @group.users.each_with_index do |user, j|
+      @group_users.each_with_index do |user, j|
         #Check for nils because we don't want to count bye matches as wins for that player
         user_match_wins = Match.where("winner_id = ? AND tournament_id = ?", user.id, t.id).where.not(player_1: nil).where.not(player_2: nil).count
         @all_user_wins[j] += user_match_wins
@@ -61,7 +70,7 @@ class GroupsController < ApplicationController
     end
 
     #Calculate win/loss ratio. Need to avoid divide by zero error
-    @group.users.each_with_index do |user, i|
+    @group_users.each_with_index do |user, i|
       user_match_wins = @all_user_wins[i]
       user_match_losses = @all_user_losses[i]
       if (user_match_losses == 0)

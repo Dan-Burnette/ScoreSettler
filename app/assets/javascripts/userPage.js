@@ -15,3 +15,6 @@ $('.accept-invite').on('click', function() {
 		})
 	window.location.reload(true);
 })
+
+
+

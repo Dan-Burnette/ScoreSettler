@@ -34,18 +34,26 @@
 <section class="large-4 column tournament-listing">
 	<!-- Link to in progress tournaments -->
 	<h3>Active Tournaments</h3>
-	<% @incomplete_tournaments.each do |t| %>
-		<ul>
-			<li> <%= link_to t.name, tournament_path(t.id) , method: :GET %> </li>
-		</ul>
-	<% end %>
+	<% if @incomplete_tournaments.empty?%>
+		<p>None</p>
+	<%else%>
+		<% @incomplete_tournaments.each do |t| %>
+			<ul>
+				<li> <%= link_to t.name, tournament_path(t.id) , method: :GET %> </li>
+			</ul>
+		<% end %>
+	<%end%>
 
 	<!-- Display old tournaments and their victors -->
 	<h3>Completed Tournaments</h3>
-	<% @complete_tournaments.each_with_index do |t,i| %>
-		<ul> 
-			<li> <h5><%= t.name %></h5> <h5> Victor : <%=@champs[i].username%></h5> </li>
-		</ul>
+	<% if @complete_tournaments.empty? %>
+		<p>None</p>
+	<% else %>
+		<% @complete_tournaments.each_with_index do |t,i| %>
+			<ul> 
+				<li> <h5><%= t.name %></h5> <h5> Victor : <%=@champs[i].username%></h5> </li>
+			</ul>
+		<% end %>
 	<% end %>
 </section>
 
@@ -59,7 +67,7 @@
 			<th> Win/Loss </th>
 			<th>Tournament Wins </th>
 		</thead>
-		<% @group.users.each_with_index do |user,i| %>
+		<% @group_users.each_with_index do |user,i| %>
 			<tr>
 				<td> <%= user.username %> </td>
 				<td> <%= @all_user_wins[i] %> </td>
@@ -74,7 +82,7 @@
 
 	<form> 
 		<select> 
-			<% @group.users.each do |user| %>
+			<% @group_users.each do |user| %>
 				<option value="<%=user.username%>"> <%=user.username%> </option>
 			<% end %>
 		</select>
