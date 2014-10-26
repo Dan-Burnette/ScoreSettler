@@ -6,25 +6,25 @@ dan.save!
 
 bill = User.new
 bill.email = "bill@bill.com"
-bill.username = "bill"
+bill.username = "Bill"
 bill.password = "billybob"
 bill.save!
 
 bilbo = User.new
 bilbo.email = "bilbo@bilbo.com"
-bilbo.username = "bilbo"
+bilbo.username = "Bilbo"
 bilbo.password = "bilbobaggins"
 bilbo.save!
 
 spagett = User.new
 spagett.email = "spagett@spagett.com"
-spagett.username = "spagett"
+spagett.username = "Spagett"
 spagett.password = "spookedya"
 spagett.save!
 
 mike = User.new
 mike.email = "mike@mike.com"
-mike.username = "mike"
+mike.username = "Mike"
 mike.password = "spookedya"
 mike.save!
 

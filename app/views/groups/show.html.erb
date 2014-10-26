@@ -55,7 +55,7 @@
 		<% else %>
 			<% @complete_tournaments.each_with_index do |t,i| %>
 				<ul class="completed-tournament-list"> 
-					<li class="completed-tournament-list-item"> <h5><%= t.name %></h5> <h5> Victor : <%=@champs[i].username%></h5> </li>
+					<li class="completed-tournament-list-item"> <h5><%= t.name %></h5> <h5> Victor : <%=@champs[i].username%></h5> <h5><%= t.game_type%></h5> </li>
 				</ul>
 			<% end %>
 		<% end %>

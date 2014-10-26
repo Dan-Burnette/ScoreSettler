@@ -1,4 +1,4 @@
-<%= stylesheet_link_tag "eight_person_tournament" %>
+<%= stylesheet_link_tag "four_and_eight_person_tournament" %>
 <%= javascript_include_tag "playTournament" %>
 
 <!-- Things I need in Javascript to send AJAX requests in order to update matches -->
@@ -10,8 +10,8 @@
 
 <!--     Tournament View     -->
 <div class="row">
-    <div class="large-12 tournament-title columns">
-      <div class="text-center panel"><%=@tournament.name%></div>
+    <div class="large-12 columns">
+      <div class="text-center title panel"><%=@tournament.name%></div>
     </div>
   </div>
 
