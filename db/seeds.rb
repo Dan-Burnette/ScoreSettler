@@ -1,106 +1,62 @@
 dan = User.new
 dan.email = "dan@dan.com"
-dan.username = "Dan"
+dan.username = "dan"
 dan.password = "dingusdan"
 dan.save!
 
-bill = User.new
-bill.email = "bill@bill.com"
-bill.username = "Bill"
-bill.password = "billybob"
-bill.save!
+yusef = User.new
+yusef.email = "yusef@yusef.com"
+yusef.username = "yusef"
+yusef.password = "yusefyusefyusef"
+yusef.save!
 
-bilbo = User.new
-bilbo.email = "bilbo@bilbo.com"
-bilbo.username = "Bilbo"
-bilbo.password = "bilbobaggins"
-bilbo.save!
+nick = User.new
+nick.email = "nick@nick.com"
+nick.username = "nick"
+nick.password = "nicknicknick"
+nick.save!
 
-spagett = User.new
-spagett.email = "spagett@spagett.com"
-spagett.username = "Spagett"
-spagett.password = "spookedya"
-spagett.save!
+marco = User.new
+marco.email = "marco@marco.com"
+marco.username = "marco"
+marco.password = "marcomarcomarco"
+marco.save!
 
-mike = User.new
-mike.email = "mike@mike.com"
-mike.username = "Mike"
-mike.password = "spookedya"
-mike.save!
+gilbert = User.new
+gilbert.email = "gilbert@gilbert.com"
+gilbert.username = "gilbert"
+gilbert.password = "gilbertgilbertgilbert"
+gilbert.save!
 
-billybob = User.new
-billybob.email = "billybob@billybob.com"
-billybob.username = "billybob"
-billybob.password = "spookedya"
-billybob.save!
+bradley = User.new
+bradley.email = "bradley@bradley.com"
+bradley.username = "bradley"
+bradley.password = "bradleybradleybradley"
+bradley.save!
 
-shannon = User.new
-shannon.email = "shannon@shannon.com"
-shannon.username = "shannon"
-shannon.password = "spookedya"
-shannon.save!
+darrell = User.new
+darrell.email = "darrell@darrell.com"
+darrell.username = "darrell"
+darrell.password = "darrelldarrelldarrell"
+darrell.save!
 
-john = User.new
-john.email = "john@john.com"
-john.username = "john"
-john.password = "spookedya"
-john.save!
-
-mrNine = User.new
-mrNine.email = "mrNine@mrNine.com"
-mrNine.username = "mrNine"
-mrNine.password = "spookedya"
-mrNine.save!
+ben = User.new
+ben.email = "ben@ben.com"
+ben.username = "ben"
+ben.password = "benbenben"
+ben.save!
 
 
-guy = User.new
-guy.email = "guy@guy.com"
-guy.username = "guy"
-guy.password = "guyguyguy"
-guy.save!
-
-bob= User.new
-bob.email = "bob@bob.com"
-bob.username = "bob"
-bob.password = "bobbobob"
-bob.save!
-
-peach = User.new
-peach.email = "peach@peach.com"
-peach.username = "peach"
-peach.password = "peachpeachpeach"
-peach.save!
-
-mario = User.new
-mario.email = "mario@mario.com"
-mario.username = "mario"
-mario.password = "mariomariomario"
-mario.save!
-
-bowser = User.new
-bowser.email = "bowser@bowser.com"
-bowser.username = "bowser"
-bowser.password = "bowserbowserbowser"
-bowser.save!
-
-#spagett is the not a member
 MKS = Group.create(name: "MKS Gamers", admin_id: 1)
 MKS.memberships.create(user_id: dan.id, status: "active")
-MKS.memberships.create(user_id: bill.id, status: "active")
-MKS.memberships.create(user_id: bilbo.id, status: "active")
-MKS.memberships.create(user_id: mike.id, status: "active")
-MKS.memberships.create(user_id: billybob.id, status: "active")
-MKS.memberships.create(user_id: shannon.id, status: "active")
-MKS.memberships.create(user_id: john.id, status: "active")
-MKS.memberships.create(user_id: mrNine.id, status: "active")
-MKS.memberships.create(user_id: bob.id, status: "active")
-MKS.memberships.create(user_id: peach.id, status: "active")
-MKS.memberships.create(user_id: mario.id, status: "active")
-MKS.memberships.create(user_id: bowser.id, status: "active")
+MKS.memberships.create(user_id: yusef.id, status: "active")
+MKS.memberships.create(user_id: nick.id, status: "active")
+MKS.memberships.create(user_id: marco.id, status: "active")
+MKS.memberships.create(user_id: gilbert.id, status: "active")
+MKS.memberships.create(user_id: bradley.id, status: "active")
+MKS.memberships.create(user_id: darrell.id, status: "active")
+MKS.memberships.create(user_id: ben.id, status: "active")
 
-GroupToJoin = Group.create(name: "UIOWA Gamers", admin_id: 1)
-GroupToJoin.memberships.create(user_id: bob.id, status: "active")
-GroupToJoin.memberships.create(user_id: peach.id, status: "active")
-GroupToJoin.memberships.create(user_id: mario.id, status: "active")
-GroupToJoin.memberships.create(user_id: bowser.id, status: "active")
+
+
 

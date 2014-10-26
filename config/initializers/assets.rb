@@ -9,6 +9,7 @@ Rails.application.config.assets.version = '1.0'
 Rails.application.config.assets.precompile += %w( four_and_eight_person_tournament.css )
 Rails.application.config.assets.precompile += %w( loginPage.css)
 Rails.application.config.assets.precompile += %w( registrationPage.css)
+Rails.application.config.assets.precompile += %w( forgotPasswordPage.css)
 Rails.application.config.assets.precompile += %w( userPage.css)
 Rails.application.config.assets.precompile += %w( groupPage.css)
 Rails.application.config.assets.precompile += %w( layout.css)
