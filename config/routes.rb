@@ -8,7 +8,6 @@ Rails.application.routes.draw do
     resources :matches
   end
 
-  resources :invites
 
   root to: 'users#show'
 

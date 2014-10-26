@@ -5,10 +5,6 @@ $(document).ready(function()
 ); 
 
 
-$('.head-to-head-submit').on('click', function() {
-	
-})
-
 $('.invite-user').on('click', function() {
 	var username = $('.user-to-invite').val();
 	var group_id = $('.group-id').val();

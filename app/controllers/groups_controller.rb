@@ -83,12 +83,37 @@ class GroupsController < ApplicationController
       end
       @all_user_win_loss_ratios.push(user_win_loss_ratio)
     end
-    
+
+    #populating the head to head table stats if the data has been sent
+    if (params[:head_to_head])
+      user1 = User.find_by(username: params[:user_1])
+      user2 = User.find_by(username: params[:user_2])
+      group_id = params[:id]
+      @meetings = 0
+      @victories = 0
+      @defeats = 0
+      @group.tournaments.each do |t|
+        t.matches.each do |m|
+          if ((m.player_1 == user1.id || m.player_1 == user2.id) && 
+              (m.player_2 == user1.id || m.player_2 == user2.id))
+              if (m.winner_id == user1.id)
+                @victories +=1
+              else
+                @defeats +=1
+              end
+              @meetings +=1
+          end
+        end
+      end
+      puts "MEETINGS VICTORIES DEFEATS"
+      puts @meetings
+      puts @victories
+      puts @defeats
+
+    end
+
   end
 
-  # Destroy a group
-  # def destroy
-  # end
 
   def group_params
     params.require(:group).permit(:name, :admin_id)

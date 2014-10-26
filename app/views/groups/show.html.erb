@@ -1,10 +1,13 @@
+<%= stylesheet_link_tag :application, :media => "all" %>
+<%= stylesheet_link_tag "groupPage" %>
 
 <h1><%= @group.name %> </h1>
-
+<div class="spacer large-1 columns">&nbsp</div>
 <!-- If the user is admin of the group show them the "admin console" -->
-<section class="large-4 column admin-view">
+<section class="large-3 columns admin-view panel content">
 	<% if current_user.id == @group.admin_id %>
 	<!-- Creating a new tournament -->
+		<h2>Admin Console </h2>
 		<h3>Start a new tournament for this group</h3>
 		<%= form_tag tournaments_path, method: :POST do %>
 			<label>Tournament Name </label>
@@ -12,7 +15,7 @@
 			<label>What game are you playing?</label>
 			<input name="tournament[game_type]" type="text" value="" />
 			<label><h5>Participants</h5></label>
-			<label><h6>Tournament sizes are 4,8, and 16. Selections not matching this will have byes added appropriately </h6></label>
+			<label><p>Currently supported sizes are 4 and 8. Selections not matching this will have byes added appropriately. </p></label>
 			<label class="player-counter"> Players selected: 0</label>
 			<%@group.users.each_with_index do |user,i| %>
 				<label>
@@ -31,7 +34,9 @@
 	<% end %>
 </section>
 
-<section class="large-4 column tournament-listing">
+<div class="spacer large-1 columns">&nbsp</div>
+
+<section class="large-3 columns tournament-listing content">
 	<!-- Link to in progress tournaments -->
 	<h3>Active Tournaments</h3>
 	<% if @incomplete_tournaments.empty?%>
@@ -57,7 +62,8 @@
 	<% end %>
 </section>
 
-<section class="large-4 column stats">
+<!--       Stats section         -->
+<section class="large-3 columns stats content">
 	<h2>Group Stats </h2>
 	<table class="stats-table"> 
 		<thead>
@@ -80,28 +86,35 @@
 
 	<h3> Head to Head</h3>
 
+
+	<!-- On selection, send AJAX to get the info needed for the table -->
 	<form> 
-		<select> 
+		<select class="user-1" onchange="changeEventHandler(event);"> 
 			<% @group_users.each do |user| %>
 				<option value="<%=user.username%>"> <%=user.username%> </option>
 			<% end %>
 		</select>
 		<p>VS<p>
-		<select> 
-			<% @group.users.each do |user| %>
+		<select class="user-2" onchange="changeEventHandler(event);"> 
+			<% @group_users.each do |user| %>
 				<option value="<%=user.username%>"> <%=user.username%> </option>
 			<% end %>
 		</select>
-		<!-- On click, send AJAX to get the info needed for the table -->
-		<input type="submit" class="head-to-head-submit">
 
-		<table class="head-to-head">
+		<table hidden class="head-to-head">
 			<thead> 
 				<th>Meetings</th>
 				<th>Victories</th>
 				<th>Defeats</th>
 			</thead>
+			<tr>
+				<td><%= @meetings.inspect %></td>
+				<td><%= @victories %></td>
+				<td><%= @defeats %></td>
+			</tr>
 		</table>
 	</form>
 
 </section>
+
+<div class="spacer large-1 columns">&nbsp</div>

@@ -1,28 +1,36 @@
-<h2>Your Groups</h2>
+<%= stylesheet_link_tag :application, :media => "all" %>
+<%= stylesheet_link_tag "userPage" %>
 
-<% @active_groups.each do |group| %>
-	<ul> 
-		<li> <%= link_to group.name, group_path(group.id) , method: :GET  %> </li>
-	</ul>
-<% end %>
-
-
-<h2> Pending Group Invites </h2>
-<% @pending_groups.each_with_index do |group,i| %>
-	<ul>
-	<li> <%=group.name%> 
-		 <button class="accept-invite">Accept invite </button> 
-		 <input class="group-id" type="hidden" value=<%=group.id%>> 
-		 <input class="user-id" type="hidden" value=<%=current_user.id%>>
-		 <input class="membership-id" type="hidden" value=<%=@pending_memberships[i].id%>>
-	</li>
-	</ul>
-<% end %>
-
-<h2>Create a group</h2>
-<label>Group Name </label>
-<%= form_tag groups_path, method: :POST do %>
-	<input name="group[name]"type="text" >
-	<input name="group[admin_id]" type="hidden" value=<%=@user.id%>>
-	<button > Create </button>
-<% end %>
+<div class="large-4 columns content"> 
+	<h2>Your Groups</h2>
+	<% @active_groups.each do |group| %>
+		<ul> 
+			<li> <%= link_to group.name, group_path(group.id) , method: :GET  %> </li>
+		</ul>
+	<% end %>
+</div>
+<div class="large-4 columns content">
+	<h2> Invitations </h2>
+	<%if @pending_groups.empty? %>
+		<p>No current invites :( Maybe start your own group? </p>
+	<% end %>
+	<% @pending_groups.each_with_index do |group,i| %>
+		<ul class="pending-invites">
+		<li> <%=group.name%> 
+			 <button class="accept-invite">Accept invite </button> 
+			 <input class="group-id" type="hidden" value=<%=group.id%>> 
+			 <input class="user-id" type="hidden" value=<%=current_user.id%>>
+			 <input class="membership-id" type="hidden" value=<%=@pending_memberships[i].id%>>
+		</li>
+		</ul>
+	<% end %>
+</div>
+<div class="large-4 columns content">
+	<h2>Create a group</h2>
+	<label class="group-name">Group Name </label>
+	<%= form_tag groups_path, :class => 'create-group', method: :POST do %>
+		<input name="group[name]"type="text" >
+		<input name="group[admin_id]" type="hidden" value=<%=@user.id%>>
+		<button class="create-button"> Create </button>
+	<% end %>
+</div>
