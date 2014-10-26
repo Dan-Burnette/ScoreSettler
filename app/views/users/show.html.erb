@@ -5,7 +5,7 @@
 	<h2>Your Groups</h2>
 	<% @active_groups.each do |group| %>
 		<ul> 
-			<li> <%= link_to group.name, group_path(group.id) , method: :GET  %> </li>
+			<li> <p><%= link_to group.name, group_path(group.id) , method: :GET  %><p> </li>
 		</ul>
 	<% end %>
 </div>
@@ -16,7 +16,7 @@
 	<% end %>
 	<% @pending_groups.each_with_index do |group,i| %>
 		<ul class="pending-invites">
-		<li> <%=group.name%> 
+		<li> <p><%=group.name%></p>
 			 <button class="accept-invite">Accept invite </button> 
 			 <input class="group-id" type="hidden" value=<%=group.id%>> 
 			 <input class="user-id" type="hidden" value=<%=current_user.id%>>

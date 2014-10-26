@@ -12,7 +12,11 @@ ul {
 }
 
 .spacer {
-	width: 5%;
+	width: 8.33%;
+}
+
+.big-spacer {
+	width: 25%;
 }
 
 .admin-view {
@@ -29,8 +33,14 @@ ul {
 	border-radius: 1em;
 }
 
-.stats-table {
-	
+
+.stats-table{
+	padding: 5px;
+	border-radius: 1em;
 }
 
 
+.highlight {
+  background: #fbf8e9;
+  transition: all 0.1s ease-in-out;     
+}

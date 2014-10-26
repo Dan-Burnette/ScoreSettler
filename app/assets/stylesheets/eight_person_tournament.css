@@ -9,6 +9,13 @@ html {
   box-sizing: inherit;
 }
 
+.tournament-title {
+	font-family: 'Bree Serif', serif;
+	border-radius: 1em;
+}
+
+
+/* Tournament bracket parts*/
 .tournament-container {
 
 

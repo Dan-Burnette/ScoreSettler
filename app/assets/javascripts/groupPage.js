@@ -26,3 +26,10 @@ $('.invite-user').on('click', function() {
 	}, 1000);
 
 })
+
+// Hover for the table to indicate you can click to sort
+$('.sortable').mouseover(function(){
+    $(this).addClass('highlight');
+}).mouseout(function(){
+    $(this).removeClass('highlight');
+});

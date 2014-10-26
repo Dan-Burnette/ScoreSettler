@@ -4,8 +4,9 @@
 <h1><%= @group.name %> </h1>
 <div class="spacer large-1 columns">&nbsp</div>
 <!-- If the user is admin of the group show them the "admin console" -->
-<section class="large-3 columns admin-view panel content">
-	<% if current_user.id == @group.admin_id %>
+
+<% if current_user.id == @group.admin_id %>
+	<section class="large-3 columns admin-view panel content">
 	<!-- Creating a new tournament -->
 		<h2>Admin Console </h2>
 		<h3>Start a new tournament for this group</h3>
@@ -27,94 +28,183 @@
 			<input type="submit" />
 		<% end %>
 		<!--Inviting other users to your group  -->
-		<label>Invite a user to your group </label>
+		<label>Is someone missing? Invite a user to your group </label>
 			<input class="user-to-invite" type="text" placeholder="username">
 			<input class="group-id" type="hidden" value=<%=@group.id%> >
 			<button class="invite-user"> Invite</button>
-	<% end %>
-</section>
+	</section>
+	<div class="spacer large-1 columns">&nbsp</div>
 
-<div class="spacer large-1 columns">&nbsp</div>
-
-<section class="large-3 columns tournament-listing content">
-	<!-- Link to in progress tournaments -->
-	<h3>Active Tournaments</h3>
-	<% if @incomplete_tournaments.empty?%>
-		<p>None</p>
-	<%else%>
-		<% @incomplete_tournaments.each do |t| %>
-			<ul>
-				<li> <%= link_to t.name, tournament_path(t.id) , method: :GET %> </li>
-			</ul>
-		<% end %>
-	<%end%>
-
-	<!-- Display old tournaments and their victors -->
-	<h3>Completed Tournaments</h3>
-	<% if @complete_tournaments.empty? %>
-		<p>None</p>
-	<% else %>
-		<% @complete_tournaments.each_with_index do |t,i| %>
-			<ul> 
-				<li> <h5><%= t.name %></h5> <h5> Victor : <%=@champs[i].username%></h5> </li>
-			</ul>
-		<% end %>
-	<% end %>
-</section>
-
-<!--       Stats section         -->
-<section class="large-3 columns stats content">
-	<h2>Group Stats </h2>
-	<table class="stats-table"> 
-		<thead>
-			<th>Player</th>
-			<th>Match Wins</th>
-			<th>Match Losses </th>
-			<th> Win/Loss </th>
-			<th>Tournament Wins </th>
-		</thead>
-		<% @group_users.each_with_index do |user,i| %>
-			<tr>
-				<td> <%= user.username %> </td>
-				<td> <%= @all_user_wins[i] %> </td>
-				<td> <%= @all_user_losses[i]%></td>
-				<td> <%= @all_user_win_loss_ratios[i]  %></td> 
-				<td> <%= @all_user_tournament_wins[i] %> </td>
-			</tr>
-		<% end %>
-	</table>
-
-	<h3> Head to Head</h3>
-
-
-	<!-- On selection, send AJAX to get the info needed for the table -->
-	<form> 
-		<select class="user-1" onchange="changeEventHandler(event);"> 
-			<% @group_users.each do |user| %>
-				<option value="<%=user.username%>"> <%=user.username%> </option>
+	<section class="large-3 columns tournament-listing content">
+		<!-- Link to in progress tournaments -->
+		<h3>Active Tournaments</h3>
+		<% if @incomplete_tournaments.empty?%>
+			<p>None</p>
+		<%else%>
+			<% @incomplete_tournaments.each do |t| %>
+				<ul>
+					<li> <%= link_to t.name, tournament_path(t.id) , method: :GET %> </li>
+				</ul>
 			<% end %>
-		</select>
-		<p>VS<p>
-		<select class="user-2" onchange="changeEventHandler(event);"> 
-			<% @group_users.each do |user| %>
-				<option value="<%=user.username%>"> <%=user.username%> </option>
-			<% end %>
-		</select>
+		<%end%>
 
-		<table hidden class="head-to-head">
-			<thead> 
-				<th>Meetings</th>
-				<th>Victories</th>
-				<th>Defeats</th>
+		<!-- Display old tournaments and their victors -->
+		<h3>Completed Tournaments</h3>
+		<% if @complete_tournaments.empty? %>
+			<p>None</p>
+		<% else %>
+			<% @complete_tournaments.each_with_index do |t,i| %>
+				<ul class="completed-tournament-list"> 
+					<li class="completed-tournament-list-item"> <h5><%= t.name %></h5> <h5> Victor : <%=@champs[i].username%></h5> </li>
+				</ul>
+			<% end %>
+		<% end %>
+	</section>
+
+	<!--       Stats section         -->
+	<section class="large-3 columns stats content">
+		<h2>Group Stats </h2>
+		<table class="stats-table"> 
+			<thead>
+				<th class="corner sortable">Player</th>
+				<th class="sortable">Match Wins</th>
+				<th class="sortable">Match Losses </th>
+				<th class="sortable"> Win/Loss </th>
+				<th class="corner sortable">Tournament Wins </th>
 			</thead>
-			<tr>
-				<td><%= @meetings.inspect %></td>
-				<td><%= @victories %></td>
-				<td><%= @defeats %></td>
-			</tr>
+			<% @group_users.each_with_index do |user,i| %>
+				<tr>
+					<td> <%= user.username %> </td>
+					<td> <%= @all_user_wins[i] %> </td>
+					<td> <%= @all_user_losses[i]%></td>
+					<td> <%= @all_user_win_loss_ratios[i]  %></td> 
+					<td> <%= @all_user_tournament_wins[i] %> </td>
+				</tr>
+			<% end %>
 		</table>
-	</form>
 
-</section>
+		<h3> Head to Head</h3>
 
-<div class="spacer large-1 columns">&nbsp</div>
+
+		<!-- On selection, send AJAX to get the info needed for the table -->
+		<form> 
+			<select class="user-1" onchange="changeEventHandler(event);"> 
+				<% @group_users.each do |user| %>
+					<option value="<%=user.username%>"> <%=user.username%> </option>
+				<% end %>
+			</select>
+			<p>VS<p>
+			<select class="user-2" onchange="changeEventHandler(event);"> 
+				<% @group_users.each do |user| %>
+					<option value="<%=user.username%>"> <%=user.username%> </option>
+				<% end %>
+			</select>
+
+			<table hidden class="head-to-head">
+				<thead> 
+					<th>Meetings</th>
+					<th>Victories</th>
+					<th>Defeats</th>
+				</thead>
+				<tr>
+					<td><%= @meetings.inspect %></td>
+					<td><%= @victories %></td>
+					<td><%= @defeats %></td>
+				</tr>
+			</table>
+		</form>
+
+	</section>
+
+	<div class="spacer large-1 columns">&nbsp</div>
+
+<!-- Not an admin, adjust page accordingly -->
+<%else%>
+	<div class="spacer large-2 columns">&nbsp</div>
+
+	<section class="large-2 columns tournament-listing content">
+		<!-- Link to in progress tournaments -->
+		<h3>Active Tournaments</h3>
+		<% if @incomplete_tournaments.empty?%>
+			<p>None</p>
+		<%else%>
+			<% @incomplete_tournaments.each do |t| %>
+				<ul>
+					<li> <%= link_to t.name, tournament_path(t.id) , method: :GET %> </li>
+				</ul>
+			<% end %>
+		<%end%>
+	</section>
+	<section class="large-2 columns tournament-listing content">
+		<!-- Display old tournaments and their victors -->
+		<h3>Completed Tournaments</h3>
+		<% if @complete_tournaments.empty? %>
+			<p>None</p>
+		<% else %>
+			<% @complete_tournaments.each_with_index do |t,i| %>
+				<ul class="completed-tournament-list"> 
+					<li class="completed-tournament-list-item"> <h5><%= t.name %></h5> <h5> Victor : <%=@champs[i].username%></h5> </li>
+				</ul>
+			<% end %>
+		<% end %>
+	</section>
+
+	<!--       Stats section         -->
+	<section class="large-4 columns stats content">
+		<h1>Group Stats </h1>
+		<table class="stats-table"> 
+			<thead>
+				<th class=" corner sortable">Player</th>
+				<th class="sortable">Match Wins</th>
+				<th class="sortable">Match Losses </th>
+				<th class="sortable"> Win/Loss </th>
+				<th class="corner sortable">Tournament Wins </th>
+			</thead>
+			<% @group_users.each_with_index do |user,i| %>
+				<tr>
+					<td> <%= user.username %> </td>
+					<td> <%= @all_user_wins[i] %> </td>
+					<td> <%= @all_user_losses[i]%></td>
+					<td> <%= @all_user_win_loss_ratios[i]  %></td> 
+					<td> <%= @all_user_tournament_wins[i] %> </td>
+				</tr>
+			<% end %>
+		</table>
+
+		<h3> Head to Head</h3>
+
+
+		<!-- On selection, send AJAX to get the info needed for the table -->
+		<form> 
+			<select class="user-1" onchange="changeEventHandler(event);"> 
+				<% @group_users.each do |user| %>
+					<option value="<%=user.username%>"> <%=user.username%> </option>
+				<% end %>
+			</select>
+			<p>VS<p>
+			<select class="user-2" onchange="changeEventHandler(event);"> 
+				<% @group_users.each do |user| %>
+					<option value="<%=user.username%>"> <%=user.username%> </option>
+				<% end %>
+			</select>
+
+			<table hidden class="head-to-head">
+				<thead> 
+					<th>Meetings</th>
+					<th>Victories</th>
+					<th>Defeats</th>
+				</thead>
+				<tr>
+					<td><%= @meetings.inspect %></td>
+					<td><%= @victories %></td>
+					<td><%= @defeats %></td>
+				</tr>
+			</table>
+		</form>
+
+	</section>
+
+	<div class="spacer large-2 columns">&nbsp</div>	
+<% end %>
+
+
