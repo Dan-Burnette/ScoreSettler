@@ -43,7 +43,7 @@
 		<%else%>
 			<% @incomplete_tournaments.each do |t| %>
 				<ul>
-					<li> <%= link_to t.name, tournament_path(t.id) , method: :GET %> </li>
+					<li class="tournament-li"><h5> <%= link_to t.name, tournament_path(t.id) , method: :GET %></h5> </li>
 				</ul>
 			<% end %>
 		<%end%>
@@ -55,7 +55,7 @@
 		<% else %>
 			<% @complete_tournaments.each_with_index do |t,i| %>
 				<ul class="completed-tournament-list"> 
-					<li class="completed-tournament-list-item"> <h5><%= t.name %></h5> <h5> Victor : <%=@champs[i].username%></h5> <h5><%= t.game_type%></h5> </li>
+					<li class="tournament-li"> <h5><%= t.name %></h5> <h5> Victor : <%=@champs[i].username%></h5> <h5><%= t.game_type%></h5> </li>
 				</ul>
 			<% end %>
 		<% end %>
@@ -122,19 +122,8 @@
 <%else%>
 	<div class="spacer large-2 columns">&nbsp</div>
 
-	<section class="large-2 columns tournament-listing content">
-		<!-- Link to in progress tournaments -->
-		<h3>Active Tournaments</h3>
-		<% if @incomplete_tournaments.empty?%>
-			<p>None. Get your group's admin to create one!</p>
-		<%else%>
-			<% @incomplete_tournaments.each do |t| %>
-				<ul>
-					<li> <%= link_to t.name, tournament_path(t.id) , method: :GET %> </li>
-				</ul>
-			<% end %>
-		<%end%>
-	</section>
+
+
 	<section class="large-2 columns tournament-listing content">
 		<!-- Display old tournaments and their victors -->
 		<h3>Completed Tournaments</h3>
@@ -143,11 +132,26 @@
 		<% else %>
 			<% @complete_tournaments.each_with_index do |t,i| %>
 				<ul class="completed-tournament-list"> 
-					<li class="completed-tournament-list-item"> <h5><%= t.name %></h5> <h5> Victor : <%=@champs[i].username%></h5> </li>
+					<li class="tournament-li"> <h5><%= t.name %></h5> <h5> Victor : <%=@champs[i].username%></h5> </li>
 				</ul>
 			<% end %>
 		<% end %>
 	</section>
+	
+	<section class="large-2 columns tournament-listing content">
+		<!-- Link to in progress tournaments -->
+		<h3>Active Tournaments</h3>
+		<% if @incomplete_tournaments.empty?%>
+			<p>None. Get your group's admin to create one!</p>
+		<%else%>
+			<% @incomplete_tournaments.each do |t| %>
+				<ul>
+					<li class="tournament-li"> <p><%= link_to t.name, tournament_path(t.id) , method: :GET %></p> </li>
+				</ul>
+			<% end %>
+		<%end%>
+	</section>
+
 
 	<!--       Stats section         -->
 	<section class="large-4 columns stats content">
