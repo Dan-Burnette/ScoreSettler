@@ -1,6 +1,8 @@
 $(document).ready(function() 
     { 
-        $(".stats-table").tablesorter(); 
+        $(".stats-table").tablesorter({
+     		 sortList: [[4,1]] 
+        }); 
     } 
 ); 
 
