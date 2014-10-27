@@ -126,7 +126,7 @@
 		<!-- Link to in progress tournaments -->
 		<h3>Active Tournaments</h3>
 		<% if @incomplete_tournaments.empty?%>
-			<p>None</p>
+			<p>None. Get your group's admin to create one!</p>
 		<%else%>
 			<% @incomplete_tournaments.each do |t| %>
 				<ul>
