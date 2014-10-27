@@ -20,7 +20,7 @@
 			<label class="player-counter"> Players selected: 0</label>
 			<%@group.users.each_with_index do |user,i| %>
 				<label>
-					<input type="checkbox" name="players[]" value=<%=user.username%>>
+					<input class ="check" type="checkbox" name="players[]" value=<%=user.username%>>
 					<%=user.username%>
 				</label>
 			<% end %>
