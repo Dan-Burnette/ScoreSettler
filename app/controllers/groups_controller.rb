@@ -64,7 +64,7 @@ class GroupsController < ApplicationController
         #Check for nils because we don't want to count bye matches as wins for that player
         user_match_wins = Match.where("winner_id = ? AND tournament_id = ?", user.id, t.id).where.not(player_1: nil).where.not(player_2: nil).count
         @all_user_wins[j] += user_match_wins
-        user_match_losses = Match.where("player_1 = ? OR player_2 = ? AND tournament_id = ?" , user.id, user.id, t.id).where.not(winner_id: user.id).count
+        user_match_losses = Match.where("player_1 = ? OR player_2 = ?" , user.id, user.id).where("tournament_id = ?", t.id).where.not("winner_id = ?", user.id).count
         @all_user_losses[j] += user_match_losses       
       end
     end

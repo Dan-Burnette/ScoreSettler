@@ -1,11 +1,6 @@
 class TournamentsController < ApplicationController
   before_action :authenticate_user!
 
-  #Show all tournaments on the user
-  def index
-  end
-
-
  #Create tournament, randomize players, make its matches, redirect to it's view if successful
   def create
     #Setting up the players 
@@ -23,10 +18,9 @@ class TournamentsController < ApplicationController
     else
       t_size = 'too big'
     end
-    puts "tournament size is" + "#{t_size}"
+  
     byes.times { player_names.push("bye") }
     player_names.shuffle!
-    puts "#{player_names}"
 
     #Actual tournament creation
     if (t_size != 'too big')
@@ -76,24 +70,18 @@ class TournamentsController < ApplicationController
     #so that they can be populated in 
     #the view if tournament is in progress
     @all_player_spots = [];
-    puts "before -----"
-    puts @all_player_spots.inspect
     for i in 0...@tournament.size-1
       p1 = User.find_by(id: (@matches[i].player_1.to_i))
       p2 = User.find_by(id: (@matches[i].player_2.to_i))
       if p1 != nil
         @all_player_spots.push(p1.username)
-        puts "pushed #{p1.username}"
       else
         @all_player_spots.push(nil)
-        puts "pushed nil"
       end
       if p2 != nil
         @all_player_spots.push(p2.username)
-         puts "pushed #{p2.username}"
       else
         @all_player_spots.push(nil)
-        puts "pushed nil"
       end
     end
     puts @all_player_spots.inspect
