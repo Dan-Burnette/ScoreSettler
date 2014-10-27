@@ -17,4 +17,10 @@ function changeEventHandler(event) {
 	})
 	$('.head-to-head').show();
 
+	// $.get( "/groups/" + groupId + 'head_to_head', function( data ) {
+ //  		$( ".result" ).html( data );
+ // 	 		alert( "Load was performed." );
+ // 	 		console.log(data);
+	// 	});
+
 }	

@@ -11,6 +11,7 @@ Rails.application.routes.draw do
 
   root to: 'users#show'
 
+  get '/groups/:id/head_to_head', to: 'groups#head_to_head'
 
 
 

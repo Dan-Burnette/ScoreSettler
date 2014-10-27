@@ -83,8 +83,10 @@ class GroupsController < ApplicationController
       end
       @all_user_win_loss_ratios.push(user_win_loss_ratio)
     end
+  end
 
-    #populating the head to head table stats if the data has been sent
+  #populating the head to head table stats if the data has been sent
+  def head_to_head
     if (params[:head_to_head])
       user1 = User.find_by(username: params[:user_1])
       user2 = User.find_by(username: params[:user_2])
@@ -105,15 +107,12 @@ class GroupsController < ApplicationController
           end
         end
       end
-      puts "MEETINGS VICTORIES DEFEATS"
-      puts @meetings
-      puts @victories
-      puts @defeats
 
+      @defeats
     end
 
-  end
 
+  end
 
   def group_params
     params.require(:group).permit(:name, :admin_id)
