@@ -58,21 +58,18 @@ option {
   font-size: 2em;
 }
 
-.head-to-head-title {
-  margin-left: 29%;
+.head-to-head-title, .vs {
+  text-align: center;
+  width: 35%;
+  margin-left: auto;
+  margin-right: auto;
 }
-
-.vs {
-  margin-left: 45%;
-}
-
-.user-1, .user-2 {
-  margin-left: 40%;
-} 
 
 .user-1, .user-2 {
   width: 20%;
-}
+  margin-left: 40%;
+  margin-right: 40%;
+} 
 
 .head-to-head  {
   margin-left: auto;
