@@ -10,7 +10,6 @@ h1, h2, h3, h5, h6, p {
 
 }
 
-
 h1 {
 	text-align: center;
 }
@@ -42,12 +41,43 @@ ul {
 	border-radius: 1em;
 }
 
-
-.stats-table{
+.stats-table, .head-to-head{
 	padding: 5px;
 	border-radius: 1em;
 }
 
+select {
+	border-radius: 1em;
+}
+
+option {
+	text-align: center;
+}
+
+.vs, .head-to-head-title {
+	font-size: 2em;
+}
+
+.head-to-head-title {
+	margin-left: 29%;
+}
+
+.vs {
+	margin-left: 45%;
+}
+
+.user-1, .user-2 {
+	margin-left: 40%;
+} 
+
+.user-1, .user-2 {
+	width: 20%;
+}
+
+.head-to-head  {
+	margin-left: auto;
+	margin-right: auto;
+}
 
 .highlight {
   background: #fbf8e9;
