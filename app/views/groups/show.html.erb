@@ -107,9 +107,9 @@
 					<th>Defeats</th>
 				</thead>
 				<tr>
-					<td><%= @meetings.inspect %></td>
-					<td><%= @victories %></td>
-					<td><%= @defeats %></td>
+					<td class="meetings"></td>
+					<td class="victories"></td>
+					<td class="defeats"></td>
 				</tr>
 			</table>
 		</form>
@@ -176,35 +176,33 @@
 		</table>
 
 		<h3> Head to Head</h3>
-
-
 		<!-- On selection, send AJAX to get the info needed for the table -->
-		<form> 
-			<select class="user-1" onchange="changeEventHandler(event);"> 
-				<% @group_users.each do |user| %>
-					<option value="<%=user.username%>"> <%=user.username%> </option>
-				<% end %>
-			</select>
-			<p>VS<p>
-			<select class="user-2" onchange="changeEventHandler(event);"> 
-				<% @group_users.each do |user| %>
-					<option value="<%=user.username%>"> <%=user.username%> </option>
-				<% end %>
-			</select>
+		
+		<select class="user-1" onchange="changeEventHandler(event);"> 
+			<% @group_users.each do |user| %>
+				<option value="<%=user.username%>"> <%=user.username%> </option>
+			<% end %>
+		</select>
+		<p>VS<p>
+		<select class="user-2" onchange="changeEventHandler(event);"> 
+			<% @group_users.each do |user| %>
+				<option value="<%=user.username%>"> <%=user.username%> </option>
+			<% end %>
+		</select>
 
-			<table class="head-to-head">
-				<thead> 
-					<th>Meetings</th>
-					<th>Victories</th>
-					<th>Defeats</th>
-				</thead>
-				<tr>
-					<td><%= @meetings %></td>
-					<td><%= @victories %></td>
-					<td><%= @defeats %></td>
-				</tr>
-			</table>
-		</form>
+		<table class="head-to-head">
+			<thead> 
+				<th>Meetings</th>
+				<th>Victories</th>
+				<th>Defeats</th>
+			</thead>
+			<tr>
+				<td class="meetings"></td>
+				<td class="victories"></td>
+				<td class="defeats"></td>
+			</tr>
+		</table>
+		
 
 	</section>
 

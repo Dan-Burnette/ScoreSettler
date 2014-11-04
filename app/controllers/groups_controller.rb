@@ -86,31 +86,37 @@ class GroupsController < ApplicationController
   end
 
   #populating the head to head table stats if the data has been sent
-  def head_to_head
-    if (params[:head_to_head])
-      user1 = User.find_by(username: params[:user_1])
-      user2 = User.find_by(username: params[:user_2])
-      group_id = params[:id]
+  def ajax_head_to_head
+    if (params[:id])
+      info = params[:id].split(',')
+      group_id = info[0]
+      username1 = info[1]
+      username2 = info[2]
+      puts info
+
+      user1 = User.find_by(username: username1)
+      user2 = User.find_by(username: username2)
+      group = Group.find(group_id.to_i)
       @meetings = 0
       @victories = 0
       @defeats = 0
-      @group.tournaments.each do |t|
-        t.matches.each do |m|
-          if ((m.player_1 == user1.id || m.player_1 == user2.id) && 
-              (m.player_2 == user1.id || m.player_2 == user2.id))
-              if (m.winner_id == user1.id)
-                @victories +=1
-              else
-                @defeats +=1
-              end
-              @meetings +=1
+      if (group && user1 && user2)
+        group.tournaments.each do |t|
+          t.matches.each do |m|
+            if ((m.player_1 == user1.id || m.player_1 == user2.id) && 
+                (m.player_2 == user1.id || m.player_2 == user2.id))
+                if (m.winner_id == user1.id)
+                  @victories +=1
+                else
+                  @defeats +=1
+                end
+                @meetings +=1
+            end
           end
         end
       end
-
       @defeats
     end
-
 
   end
 
