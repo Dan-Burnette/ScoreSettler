@@ -8,12 +8,9 @@ Rails.application.routes.draw do
     resources :matches
   end
 
+  get 'head_to_head/:id', to: 'groups#ajax_head_to_head'
 
   root to: 'users#show'
-
-  get '/groups/:id/head_to_head', to: 'groups#head_to_head'
-
-
 
   
 end

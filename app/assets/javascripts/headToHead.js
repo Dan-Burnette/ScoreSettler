@@ -1,26 +1,13 @@
-//Update the head to head table 
+// When selector changes, get server data for updating the head to head table via AJAX request
 function changeEventHandler(event) {
 
 	var groupId = $('.group-id').val();
 	var user1 = $('.user-1').val();
 	var user2 = $('.user-2').val();
-
-	var JSON = {user_1 : user1,
-				user_2 : user2,
-				head_to_head : "true"};
+	var URL = groupId +',' + user1 + ',' + user2;
 
 	$.ajax({
-		url: '/groups/' + groupId,
-		dataType: 'json',
-		type: 'GET',
-		data: JSON
+		url: '/head_to_head/' + URL
 	})
-	$('.head-to-head').show();
-
-	// $.get( "/groups/" + groupId + 'head_to_head', function( data ) {
- //  		$( ".result" ).html( data );
- // 	 		alert( "Load was performed." );
- // 	 		console.log(data);
-	// 	});
 
 }	

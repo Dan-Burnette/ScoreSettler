@@ -1,0 +1,14 @@
+//Populate the head to head table with the appropriate values
+//As designated in the AJAX request to groups#ajax_head_to_head
+
+$(document).ready(function() { 
+
+    $('.meetings').text(<%=@meetings%>);
+
+    $('.victories').html(<%=@victories%>);
+
+    $('.defeats').text(<%=@defeats%>);
+
+    $('.head-to-head').show();
+}); 
+
