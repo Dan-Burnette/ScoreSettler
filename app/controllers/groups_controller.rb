@@ -99,7 +99,6 @@ class GroupsController < ApplicationController
       group_id = info[0]
       username1 = info[1]
       username2 = info[2]
-      puts info
 
       user1 = User.find_by(username: username1)
       user2 = User.find_by(username: username2)

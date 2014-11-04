@@ -22,12 +22,13 @@
 				</label>
 			<% end %>
 			<input name="tournament[group_id]" type="hidden" value=<%=@group.id%> />
-			<input type="submit" />
+			<button type="submit">Start</button>
 		<% end %>
 		<!--Inviting other users to your group  -->
 		<label>Is someone missing? Invite a user to your group </label>
 			<input class="user-to-invite" type="text" placeholder="username">
 			<input class="group-id" type="hidden" value=<%=@group.id%> >
+			<!-- sends ajax request -->
 			<button class="invite-user"> Invite</button>
 	</section>
 	<div class="spacer large-1 columns">&nbsp</div>
@@ -52,7 +53,7 @@
 		<% else %>
 			<% @complete_tournaments.each_with_index do |t,i| %>
 				<ul class="completed-tournament-list"> 
-					<li class="tournament-li"> <h5><%= t.name %></h5> <h5> Victor : <%=@champs[i].username%></h5> <h5><%= t.game_type%></h5> </li>
+					<li class="tournament-li"> <h5><%= t.name %></h5> <h5> Victor : <%=@champs[i].username%></h5> <h5><%= t.game_type%></h5> <h5>Completed on: <%=t.updated_at.to_s.split(' ')[0]%> </h5></li>
 				</ul>
 			<% end %>
 		<% end %>
