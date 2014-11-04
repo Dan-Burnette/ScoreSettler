@@ -1,0 +1,85 @@
+h1, h2, h3, h5, h6, p {
+  font-family: 'Bree Serif', serif;
+  color: white;
+}
+
+.tournament-li {
+	border: 1px solid white;
+	padding: 5px;
+	margin-left: -17px;
+
+}
+
+h1 {
+	text-align: center;
+}
+
+ul {
+	list-style-type: none;
+
+}
+
+.spacer {
+	width: 8.33%;
+}
+
+.big-spacer {
+	width: 25%;
+}
+
+.admin-view {
+	border-radius: 1em;
+	opacity: 0.9;
+}
+
+.content {
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.invite-user {
+	border-radius: 1em;
+}
+
+.stats-table, .head-to-head{
+	padding: 5px;
+	border-radius: 1em;
+}
+
+select {
+	border-radius: 1em;
+}
+
+option {
+	text-align: center;
+}
+
+.vs, .head-to-head-title {
+	font-size: 2em;
+}
+
+.head-to-head-title {
+	margin-left: 29%;
+}
+
+.vs {
+	margin-left: 45%;
+}
+
+.user-1, .user-2 {
+	margin-left: 40%;
+} 
+
+.user-1, .user-2 {
+	width: 20%;
+}
+
+.head-to-head  {
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.highlight {
+  background: #fbf8e9;
+  transition: all 0.1s ease-in-out;     
+}

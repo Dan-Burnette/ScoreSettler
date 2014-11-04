@@ -83,6 +83,13 @@ class GroupsController < ApplicationController
       end
       @all_user_win_loss_ratios.push(user_win_loss_ratio)
     end
+
+    #Render admin and user views separately
+    if (current_user.id == @group.admin_id)
+      render 'showGroupToAdmin'
+    else
+      render 'showGroupToUser'
+    end
   end
 
   #populating the head to head table stats if the data has been sent
@@ -117,7 +124,6 @@ class GroupsController < ApplicationController
       end
       @defeats
     end
-
   end
 
   def group_params
