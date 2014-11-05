@@ -3,14 +3,16 @@
 
 
 <!-- Things I need in Javascript to send AJAX requests in order to update matches -->
-<!-- NEED TO REFILL WITH THINGS ONCE VIEW IS CORRECT, CHECK OTHER VIEWS -->
 
-
+<% @matches.each_with_index do |m,i| %>
+  <input type="hidden" class="match_<%=i+1%>_id" value=<%=m.id%> >
+<% end %>
+<input type="hidden" class="tournament_id" value=<%=@tournament.id%> >
 
 <!--     Tournament View     -->
 <div class="row">
     <div class="large-12 columns">
-     <h1>Double elim test</h1>
+     <div class="text-center title panel"><%=@tournament.name%></div>
     </div>
   </div>
 
@@ -27,9 +29,17 @@
         <div class="row ">&nbsp</div>
         <div class="row ">&nbsp</div>
         <div class="row ">&nbsp</div>
-        <div class="row player-de even start text-center">Loser Spot 1</div>
+        <% if @all_player_spots[4] %>
+          <div class="row player-de even text-center"><%=@all_player_spots[4]%></div>
+        <% else %>
+          <div class="row player-de even text-center"> victor</div>
+        <% end %>
         <div class="row ">&nbsp</div>
-        <div class="row player-de odd start text-center">Loser Spot 2</div>
+        <% if @all_player_spots[5] %>
+          <div class="row player-de odd  text-center"><%=@all_player_spots[5]%></div>
+        <% else %>
+          <div class="row player-de odd text-center">victor</div>
+        <% end %>
         <div class="row ">&nbsp</div>
       </div>
 
@@ -85,26 +95,34 @@
       <%= puts @all_player_spots %>
       <div class="custom-width-1 columns">
         <div class="row ">&nbsp</div>
-        <% if @all_player_spots[4] %>
-          <div class="row player-de even round2 text-center"><%=@all_player_spots[4]%></div>
+        <% if @all_player_spots[6] %>
+          <div class="row player-de even text-center"><%=@all_player_spots[6]%></div>
         <% else %>
-          <div class="row player-de even round2 text-center">round 1 victor</div>
+          <div class="row player-de even  text-center">victor</div>
         <% end %>
         <div class="row ">&nbsp</div>  
         <div class="row ">&nbsp</div>
         <div class="row ">&nbsp</div>
-        <% if @all_player_spots[5] %>
-          <div class="row player-de odd round2 text-center"><%=@all_player_spots[5]%></div>
+        <% if @all_player_spots[7] %>
+          <div class="row player-de odd text-center"><%=@all_player_spots[7]%></div>
         <% else %>
-          <div class="row player-de odd round2 text-center">round 1 victor</div>
+          <div class="row player-de odd text-center">victor</div>
         <% end %>
         <div class="row ">&nbsp</div>
         
-        <div class="row player-de even round2 text-center">Loser spot 3</div>
+        <% if @all_player_spots[8] %>
+          <div class="row player-de even text-center"><%=@all_player_spots[8]%></div>
+        <% else %>
+          <div class="row player-de even text-center">Loser</div>
+        <% end %>
         <div class="row ">&nbsp</div>
         <div class="row ">&nbsp</div>
         <div class="row ">&nbsp</div>
-        <div class="row player-de odd round2 text-center">Loser spot 4</div>
+        <% if @all_player_spots[9] %>
+          <div class="row player-de odd text-center"><%=@all_player_spots[9]%></div>
+        <% else %>
+          <div class="row player-de odd text-center">Loser</div>
+        <% end %>
       </div>
 
       <div class="custom-width-1 columns spacer">
@@ -145,10 +163,10 @@
         <div class="row">&nbsp</div>
         <div class="row">&nbsp</div>
         <div class="row">&nbsp</div>
-         <% if @all_player_spots[6] %>
-          <div class="row player-de even winner text-center"><%=@all_player_spots[6]%></div>
+         <% if @all_player_spots[10] %>
+          <div class="row player-de even text-center"><%=@all_player_spots[10]%></div>
         <% else %>
-          <div class="row player-de even winner text-center">Winnner's champ</div>
+          <div class="row player-de even text-center">Winnner's champ</div>
         <% end %>
         <div class="row">&nbsp</div>
         <div class="row">&nbsp</div>
@@ -157,8 +175,8 @@
 
         <div class="row">&nbsp</div>
 
-         <% if @all_player_spots[6] %>
-          <div class="row player-de odd winner text-center"><%=@all_player_spots[6]%></div>
+         <% if @all_player_spots[11] %>
+          <div class="row player-de odd winner text-center"><%=@all_player_spots[11]%></div>
         <% else %>
           <div class="row player-de odd winner text-center">Loser's champ</div>
         <% end %>

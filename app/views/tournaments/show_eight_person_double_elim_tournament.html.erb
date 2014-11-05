@@ -2,13 +2,16 @@
 
 
 <!-- Things I need in Javascript to send AJAX requests in order to update matches -->
-<!-- ADD THINGS BACK HERE ONCE IT'S READY!!! CHECK OTHER VIEWS -->
 
+<% @matches.each_with_index do |m,i| %>
+  <input type="hidden" class="match_<%=i+1%>_id" value=<%=m.id%> >
+<% end %>
+<input type="hidden" class="tournament_id" value=<%=@tournament.id%> >
 
 <!--     Tournament View     -->
 <div class="row">
     <div class="large-12 columns">
-      <h3>Double elimination test </h3>
+      <div class="text-center title panel"><%=@tournament.name%></div>
     </div>
   </div>
 

@@ -65,6 +65,9 @@ class TournamentsController < ApplicationController
         puts tournament.matches[i].inspect
       end
     end
+    tournament.matches.each do |m|
+      puts m.inspect
+    end 
   end
 
   def test_double_elim
@@ -72,7 +75,7 @@ class TournamentsController < ApplicationController
     render 'show_four_person_double_elim_tournament'
   end
 
-  #Only to be used on in progress tournaments 
+
   def show
     @tournament = Tournament.find(params[:id])
     @matches = @tournament.matches.sort
@@ -105,7 +108,7 @@ class TournamentsController < ApplicationController
      end
     when 8
       if (@tournament.double_elim)
-        render 'show_eight_person_tournament'
+        render 'show_eight_person_double_elim_tournament'
       else
         render 'show_eight_person_tournament'
       end
