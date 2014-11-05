@@ -37,9 +37,13 @@ class TournamentsController < ApplicationController
     end
 
     #Match setup for normal tournament
-    if (tournament != nil && t.double_elim != true)
+    if (tournament != nil)
       #Create all  matches for the tournament
-      (t_size-1).times {tournament.matches.create()}
+      if (tournament.double_elim != true)
+        (t_size-1).times {tournament.matches.create()}
+      elsif (tournament.double_elim == true)
+        (t_size*2 - 1).times {tournament.matches.create()}
+      end
       #populate the first round with players
       players = []
       player_names.each do |p|
@@ -57,17 +61,12 @@ class TournamentsController < ApplicationController
         ind += 2
         puts tournament.matches[i].inspect
       end
-
-    #Match setup for double elimination tournament
-    elsif (t.double_elim == true)
-
-
     end
   end
 
   def test_double_elim
     @all_player_spots = ['scutt','rutt','butt','mutt']
-    render 'show_eight_person_double_elim_tournament'
+    render 'show_four_person_double_elim_tournament'
   end
 
   #Only to be used on in progress tournaments 

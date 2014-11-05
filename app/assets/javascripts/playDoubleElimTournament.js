@@ -1,4 +1,4 @@
-//FOR DOUBLE ELIMINATOR TOURNAMENTS
+//FOR DOUBLE ELIMINATION TOURNAMENTS
 //Making buttons illuminate upon clicks appropriately and send AJAX to 
 //server to update the state of the tournament
 //"de" short for double eliminaton
