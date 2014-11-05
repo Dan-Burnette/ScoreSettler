@@ -1,6 +1,9 @@
-<%= stylesheet_link_tag "tournamentStyles" %>
-<%= javascript_include_tag "playTournament" %>
+<% content_for(:head) do %>
+  <%= stylesheet_link_tag "tournamentStyles" %>
 
+<% end %>
+
+<%= javascript_include_tag "pageSpecific/playTournament" %>
 <!-- Things I need in Javascript to send AJAX requests in order to update matches -->
 <% @matches.each_with_index do |m,i| %>
   <input type="hidden" class="match_<%=i+1%>_id" value=<%=m.id%> >

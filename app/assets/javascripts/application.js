@@ -15,6 +15,6 @@
 //= require jquery-tablesorter
 //= require foundation
 //= require turbolinks
-//= require_tree .
+//= require_directory .
 
 $(function(){ $(document).foundation(); });

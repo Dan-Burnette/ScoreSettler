@@ -1,10 +1,13 @@
+//FOR DOUBLE ELIMINATOR TOURNAMENTS
 //Making buttons illuminate upon clicks appropriately and send AJAX to 
 //server to update the state of the tournament
+//"de" short for double eliminaton
 
-$('.player').on('click', function() {
+$('.player-de').on('click', function() {
   var onLastMatch = false;
-  var $allPlayerSpots = $('.player');
-  var tournamentSize = ($allPlayerSpots.size()+1)/2;
+  var $allPlayerSpots = $('.player-de');
+  var tournamentSize = ($allPlayerSpots.size()-1)/3;
+  console.log('size is', tournamentSize);
   var playerPosition = $allPlayerSpots.index($(this));
 
   //Find the other player in that match

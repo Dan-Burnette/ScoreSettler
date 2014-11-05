@@ -36,8 +36,8 @@ class TournamentsController < ApplicationController
       #error t_size too big
     end
 
-    #Match setup
-    if (tournament != nil)
+    #Match setup for normal tournament
+    if (tournament != nil && t.double_elim != true)
       #Create all  matches for the tournament
       (t_size-1).times {tournament.matches.create()}
       #populate the first round with players
@@ -57,11 +57,16 @@ class TournamentsController < ApplicationController
         ind += 2
         puts tournament.matches[i].inspect
       end
+
+    #Match setup for double elimination tournament
+    elsif (t.double_elim == true)
+
+
     end
   end
 
   def test_double_elim
-    @all_player_spots = ['ass', 'nut', 'cheesey butt', 'poopy nut', 'scutt', 'rutt', 'billy']
+    @all_player_spots = ['scutt','rutt','butt','mutt']
     render 'show_eight_person_double_elim_tournament'
   end
 
