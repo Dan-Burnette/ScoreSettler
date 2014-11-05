@@ -12,5 +12,6 @@ Rails.application.routes.draw do
 
   root to: 'users#show'
 
+  get 'test', to: 'tournaments#test_double_elim'
   
 end

@@ -58,7 +58,11 @@ class TournamentsController < ApplicationController
         puts tournament.matches[i].inspect
       end
     end
+  end
 
+  def test_double_elim
+    @all_player_spots = ['ass', 'nut', 'cheesey butt', 'poopy nut']
+    render 'show_four_person_double_elim_tournament'
   end
 
   #Only to be used on in progress tournaments 

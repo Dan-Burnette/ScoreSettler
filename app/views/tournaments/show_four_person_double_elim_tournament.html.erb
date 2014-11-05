@@ -1,24 +1,22 @@
 
-<%= stylesheet_link_tag "four_and_eight_person_tournament" %>
+<%= stylesheet_link_tag "tournamentStyles" %>
 <%= javascript_include_tag "playTournament" %>
 
 <!-- Things I need in Javascript to send AJAX requests in order to update matches -->
-<% @matches.each_with_index do |m,i| %>
-  <input type="hidden" class="match_<%=i+1%>_id" value=<%=m.id%> >
-<% end %>
-<input type="hidden" class="tournament_id" value=<%=@tournament.id%> >
+<!-- NEED TO REFILL WITH THINGS ONCE VIEW IS CORRECT, CHECK OTHER VIEWS -->
+
 
 
 <!--     Tournament View     -->
 <div class="row">
     <div class="large-12 columns">
-      <div class=" title text-center panel"><%=@tournament.name%></div>
+     <h1>Double elim test</h1>
     </div>
   </div>
 
   <div class="row tournament-container">
 
-      <div class="large-2 columns">
+      <div class="custom-width-1 columns">
         <div class="row player even start text-center"><%= @all_player_spots[0] != nil ? @all_player_spots[0] : "bye" %></div>
         <div class="row ">&nbsp</div>
         <div class="row player odd start text-center"><%=@all_player_spots[1] != nil ? @all_player_spots[1] : "bye"%></div>
@@ -27,16 +25,18 @@
         <div class="row ">&nbsp</div>
         <div class="row player odd start text-center"><%=@all_player_spots[3] != nil ? @all_player_spots[3] : "bye"%></div>
         <div class="row ">&nbsp</div>
+        <div class="row ">&nbsp</div>
+        <div class="row ">&nbsp</div>
         <div class="row player even start text-center">Loser Spot 1</div>
         <div class="row ">&nbsp</div>
         <div class="row player odd start text-center">Loser Spot 2</div>
         <div class="row ">&nbsp</div>
       </div>
 
-      <div class="large-2 columns spacer">
+      <div class="custom-width-1 columns spacer">
         <div>
           <div class="line">&nbsp</div>
-          <div class="line player-line">&nbsp</div>
+          <div class="line player-line wider">&nbsp</div>
           <div class="line connector">&nbsp</div>
         </div>
 
@@ -44,7 +44,7 @@
 
         <div>
           <div class="line connector">&nbsp</div>
-          <div class="line player-line">&nbsp</div>
+          <div class="line player-line wider">&nbsp</div>
           <div class="line">&nbsp</div>
         </div>
 
@@ -52,7 +52,7 @@
 
         <div>
           <div class="line">&nbsp</div>
-          <div class="line player-line">&nbsp</div>
+          <div class="line player-line wider">&nbsp</div>
           <div class="line connector">&nbsp</div>
         </div>
 
@@ -60,13 +60,30 @@
 
         <div>
           <div class="line connector">&nbsp</div>
-          <div class="line player-line">&nbsp</div>
+          <div class="line player-line wider">&nbsp</div>
+          <div class="line">&nbsp</div>
+        </div>
+
+        <div>&nbsp</div> 
+        <div>&nbsp</div> 
+        <div>&nbsp</div> 
+        <div>
+          <div class="line">&nbsp</div>
+          <div class="line player-line wider">&nbsp</div>
+          <div class="line connector">&nbsp</div>
+        </div>
+
+        <div class="line center">&nbsp</span></div>
+
+        <div>
+          <div class="line connector">&nbsp</div>
+          <div class="line player-line wider">&nbsp</div>
           <div class="line">&nbsp</div>
         </div>
       </div>
       <%= puts"player spots" %>
       <%= puts @all_player_spots %>
-      <div class="large-2 columns">
+      <div class="custom-width-1 columns">
         <div class="row ">&nbsp</div>
         <% if @all_player_spots[4] %>
           <div class="row player even round2 text-center"><%=@all_player_spots[4]%></div>
@@ -82,14 +99,19 @@
           <div class="row player odd round2 text-center">round 1 victor</div>
         <% end %>
         <div class="row ">&nbsp</div>
+        
+        <div class="row player odd round2 text-center">Loser spot 3</div>
         <div class="row ">&nbsp</div>
+        <div class="row ">&nbsp</div>
+        <div class="row ">&nbsp</div>
+         <div class="row player even round2 text-center">Loser spot 4</div>
       </div>
 
-      <div class="large-2 columns spacer">
+      <div class="custom-width-1 columns spacer">
         <div>&nbsp</div>
         <div>
           <div class="line">&nbsp</div>
-          <div class="line player-line">&nbsp</div>
+          <div class="line player-line wider">&nbsp</div>
           <div class="line bigger-connector">&nbsp</div>
         </div>
 
@@ -97,27 +119,83 @@
 
         <div>          
           <div class="line bigger-connector">&nbsp</div>
-          <div class="line player-line">&nbsp</div>
+          <div class="line player-line wider">&nbsp</div>
           <div class="line">&nbsp</div>        
         </div>
         <div>&nbsp</div>
+
+        <div>
+          <div class="line">&nbsp</div>
+          <div class="line player-line wider">&nbsp</div>
+          <div class="line bigger-connector">&nbsp</div>
+        </div>
+
+        <div class="line center">&nbsp</div>
+
+        <div>          
+          <div class="line bigger-connector">&nbsp</div>
+          <div class="line player-line wider">&nbsp</div>
+          <div class="line">&nbsp</div>        
+        </div>
+
+
       </div>
 
-      <div class="large-2 columns">
+      <div class="custom-width-1 columns">
         <div class="row">&nbsp</div>
         <div class="row">&nbsp</div>
         <div class="row">&nbsp</div>
          <% if @all_player_spots[6] %>
           <div class="row player winner text-center"><%=@all_player_spots[6]%></div>
         <% else %>
-          <div class="row player winner text-center">Winner</div>
+          <div class="row player winner text-center">Winnner's champ</div>
+        <% end %>
+        <div class="row">&nbsp</div>
+        <div class="row">&nbsp</div>
+        <div class="row">Place for indicator</div>      
+        <div class="row">&nbsp</div>   
+
+        <div class="row">&nbsp</div>
+
+         <% if @all_player_spots[6] %>
+          <div class="row player winner text-center"><%=@all_player_spots[6]%></div>
+        <% else %>
+          <div class="row player winner text-center">Loser's champ</div>
         <% end %>
         <div class="row">&nbsp</div>
         <div class="row">&nbsp</div>
         <div class="row">&nbsp</div>      
-        <div class="row">&nbsp</div>   
+        <div class="row">&nbsp</div>  
       </div>
-      <div class="large-2 columns spacer">&nbsp</div>
-      
+      <div class="custom-width-1 columns">
+  
+        <div class="row">&nbsp</div>  
+        <div class="row">&nbsp</div>  
+        <div class="row">&nbsp</div>  
+        <div>
+          <div class="line">&nbsp</div>
+          <div class="line player-line even-wider">&nbsp</div>
+          <div class="line loser-connector">&nbsp</div>
+        </div>
+
+        <div class="line wider-center">&nbsp</div>      
+
+        <div>          
+          <div class="line loser-connector">&nbsp</div>
+          <div class="line player-line even-wider">&nbsp</div>
+          <div class="line">&nbsp</div>        
+        </div> 
+      </div>
+
+      <div class="custom-width-1 columns">
+        <div class="row">&nbsp</div>
+        <div class="row">&nbsp</div>
+        <div class="row">&nbsp</div>      
+        <div class="row">&nbsp</div>  
+        <div class="row">&nbsp</div>      
+        <div class="row">&nbsp</div>  
+        <div class="row player winner text-center">Winner</div>
+      </div>
+
   </div>
 

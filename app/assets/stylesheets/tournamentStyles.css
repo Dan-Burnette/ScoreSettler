@@ -1,0 +1,173 @@
+
+html {
+  width:100%;
+  height:100%; 
+  box-sizing: border-box;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+.title {
+	border-radius: 1em;
+	font-family: 'Bree Serif', serif;
+	font-size: 2em;
+	margin-top: 1em;
+}
+
+/*bracket stuff*/
+.columns {
+	height:100%;
+	border-width: 2px;
+}
+
+.player {
+	/*border-style: solid;*/
+	/*border-color: red;*/
+	border-width: 2px;
+	color: black ;
+	background-color: #99CCFF;
+	border-radius: 1em;
+}
+
+.line {
+	font-size: 0.33em;
+}
+
+.center {
+	width: 80%;
+	height: 10%;
+	background-color: #99CCFF;
+	margin-left: 7.7em;
+	margin-top: -.75em;
+}
+
+/*When the winner center line was not long enough*/
+.wider-center {
+	width: 87%;
+	height: 10%;
+	background-color: #99CCFF;
+	margin-left: 7.7em;
+	margin-top: -.75em;
+}
+
+
+.player-line {
+	background-color: #99CCFF;
+	width: 50%;
+	margin-left: -2.5em;
+	margin-top: -.35em;
+}
+
+/*for adjusting sizes of class player-line in greater size tournaments*/
+.wider {
+	width: 59%;
+}
+
+.even-wider {
+	width: 60%;
+}
+
+
+.connector {
+	background-color: #99CCFF;
+	width: 5%;
+	height: 3em;
+	margin-left: 7.7em;
+}
+
+.bigger-connector {
+	background-color: #99CCFF;
+	width: 5%;
+	height: 7em;
+	margin-left: 7.7em;
+}
+
+.even-bigger-connector {
+	background-color: #99CCFF;
+	width: 5%;
+	height: 15em;
+	margin-left: 7.7em;	
+}
+
+.loser-connector {
+	background-color: #99CCFF;
+	width: 5%;
+	height: 11em;
+	margin-left: 7.7em;	
+}
+
+/*For 8p ------------------------------*/
+.custom-width-1 {
+	width: 14.2857%;
+}
+
+
+/*For 16p ------------------------------*/
+.custom-width-2 {
+	width: 11.1111%;
+}
+
+.sixteen-player-line-1 {
+	background-color: green;
+	width: 80%;
+	margin-left: -2.5em;
+	margin-top: -.35em;
+}
+
+.sixteen-player-line-2 {
+	background-color: green;
+	width: 81%;
+	margin-left: -2.5em;
+	margin-top: -.4em;
+}
+
+.sixteen-player-line-3 {
+	background-color: green;
+	width: 81%;
+	margin-left: -2.5em;
+	margin-top: -0.2em;
+}
+
+
+.sixteen-connector-1 {
+
+}
+
+.sixteen-connector-2 {
+
+}
+
+.sixteen-connector-3 {
+	background-color: blue;
+	width: 5%;
+	height: 30.5em;
+	margin-left: 7.7em;	
+}
+
+
+.16p-center-line-1 {
+
+}
+
+.sixteen-center-line-4 {
+    width: 87%;
+	height: 10%;
+	background-color: red;
+	margin-left: 7.7em;
+}
+
+/*For 32p*/
+.custom-width-3 {
+	width: 9.090909%;	
+}
+
+/*For 64p*/
+.custom-width-4 {
+	width: 7.6923%;
+}
+
+
+
+
