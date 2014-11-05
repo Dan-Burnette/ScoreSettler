@@ -12,6 +12,11 @@
 			<input name="tournament[name]" type="text" value="" />
 			<label>What game are you playing?</label>
 			<input name="tournament[game_type]" type="text" value="" />
+			<label>What type of tournament?</label>
+				Single Elimination 
+				<input class="tournament-type" type="radio" name="tournament[double_elim]" value=<%=false%>>
+				Double Elimination 
+				<input class="tournament-type" type="radio" name="tournament[double_elim]" value=<%=true%>>
 			<label><h5>Participants</h5></label>
 			<label><p>Currently supported sizes are 4 and 8. Selections not matching this will have byes added appropriately. </p></label>
 			<label class="player-counter"> Players selected: 0</label>

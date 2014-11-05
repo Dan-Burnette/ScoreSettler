@@ -36,8 +36,11 @@ class TournamentsController < ApplicationController
       #error t_size too big
     end
 
-    #Match setup for normal tournament
+    #Match setup 
     if (tournament != nil)
+      puts tournament.double_elim
+      puts tournament.size
+
       #Create all  matches for the tournament
       if (tournament.double_elim != true)
         (t_size-1).times {tournament.matches.create()}
@@ -95,11 +98,17 @@ class TournamentsController < ApplicationController
     puts @all_player_spots.inspect
     case @tournament.size
     when 4
-      render 'show_four_person_tournament'
+      if (@tournament.double_elim)
+        render 'show_four_person_double_elim_tournament'
+      else
+        render 'show_four_person_tournament'
+     end
     when 8
-      render 'show_eight_person_tournament'
-    when 16
-      render 'show_sixteen_person_tournament'
+      if (@tournament.double_elim)
+        render 'show_eight_person_tournament'
+      else
+        render 'show_eight_person_tournament'
+      end
     end
   end
 
@@ -115,7 +124,7 @@ class TournamentsController < ApplicationController
   end
 
   def tournament_params
-    params.require(:tournament).permit(:game_type, :group_id, :name, :champion_id, :size)
+    params.require(:tournament).permit(:game_type, :group_id, :name, :champion_id, :size, :double_elim)
   end
 
 end
