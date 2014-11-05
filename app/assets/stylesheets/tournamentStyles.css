@@ -69,12 +69,58 @@ html {
 	width: 60%;
 }
 
+.eight-double-elim-wide {
+	width: 115%;
+}
+
+.eight-double-elim-wider {
+	width: 113%;
+}
+
+.eight-double-elim-extra-long {
+	width: 412%;
+	margin-left: -32.8em;
+}
+
+
+/*.eight-double-elim-even-wider {
+	width: 84%;
+}*/
+
 
 .connector {
 	background-color: #99CCFF;
 	width: 5%;
 	height: 3em;
 	margin-left: 7.7em;
+}
+
+.eight-double-elim-connector {
+	background-color: #99CCFF;
+	width: 13%;
+	height: 3em;
+	margin-left: 7.7em;
+}
+
+.eight-double-elim-bigger-connector {
+	background-color: #99CCFF;
+	width: 13%;
+	height: 7em;
+	margin-left: 7.7em;
+}
+
+.eight-double-elim-even-bigger-connector {
+	background-color: #99CCFF;
+	width: 13%;
+	height: 15em;
+	margin-left: 7.7em;	
+}
+
+.eight-double-elim-final-connector {
+	background-color: #99CCFF;
+	width: 13%;
+	height: 19em;
+	margin-left: 7.7em;	
 }
 
 .bigger-connector {
@@ -98,13 +144,7 @@ html {
 	margin-left: 7.7em;	
 }
 
-.custom-width-1 {
-	width: 14.2857%;
-}
 
-.custom-width-2 {
-	width: 11.1111%;
-}
 
 .sixteen-player-line-1 {
 	background-color: green;
@@ -155,12 +195,21 @@ html {
 	margin-left: 7.7em;
 }
 
-/*For 32p*/
-.custom-width-3 {
-	width: 9.090909%;	
+
+.custom-width-1 {
+	width: 14.2857%;
 }
 
-/*For 64p*/
+.custom-width-2 {
+	width: 11.1111%;
+}
+
+.custom-width-3 {
+	width: 9.090909%;	
+	font-size: 1em;
+}
+
+
 .custom-width-4 {
 	width: 7.6923%;
 }

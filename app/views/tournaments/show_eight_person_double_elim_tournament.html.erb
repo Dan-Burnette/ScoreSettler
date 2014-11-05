@@ -14,7 +14,7 @@
 
   <div class="row tournament-container">
 
-      <div class="custom-width-2 columns">
+      <div class="custom-width-3 columns">
         <div class="row player even start text-center"><%=@all_player_spots[0] != nil ? @all_player_spots[0] : "bye"%></div>
         <div class="row ">&nbsp</div>
         <div class="row player odd start text-center"><%=@all_player_spots[1] != nil ? @all_player_spots[1] : "bye"%></div>
@@ -35,7 +35,7 @@
         <% if @all_player_spots[8] %>
           <div class="row player even round2 text-center"><%=@all_player_spots[8]%></div>
         <% else %>
-          <div class="row player even round2 text-center">Loser Spot 1</div>
+          <div class="row player even round2 text-center">Loser 1</div>
         <% end %>
         <div class="row ">&nbsp</div>  
         <div class="row ">&nbsp</div>
@@ -43,7 +43,7 @@
         <% if @all_player_spots[9] %>
           <div class="row player odd round2 text-center"><%=@all_player_spots[9]%></div>
         <% else %>
-          <div class="row player odd round2 text-center">Loser Spot 2</div>
+          <div class="row player odd round2 text-center">Loser 2</div>
         <% end %>
         <div class="row ">&nbsp</div>
         <div class="row ">&nbsp</div>
@@ -51,7 +51,7 @@
         <% if @all_player_spots[10] %>
           <div class="row player even round2 text-center"><%=@all_player_spots[10]%></div>
         <% else %>
-          <div class="row player even round2 text-center">Loser Spot 3</div>
+          <div class="row player even round2 text-center">Loser 3</div>
         <% end %>
         <div class="row ">&nbsp</div>  
         <div class="row ">&nbsp</div>
@@ -59,24 +59,24 @@
         <% if @all_player_spots[11] %>
           <div class="row player odd round2 text-center"><%=@all_player_spots[11]%></div>
         <% else %>
-          <div class="row player odd round2 text-center">Loser Spot 4</div>
+          <div class="row player odd round2 text-center">Loser 4</div>
         <% end %>
         <div class="row ">&nbsp</div>
         <div class="row ">&nbsp</div>
       </div>
 
-      <div class="custom-width-2 columns spacer">
+      <div class="custom-width-3 columns spacer">
         <div>
           <div class="line">&nbsp</div>
-          <div class="line player-line wider">&nbsp</div>
-          <div class="line connector">&nbsp</div>
+          <div class="line player-line eight-double-elim-wide ">&nbsp</div>
+          <div class="line eight-double-elim-connector">&nbsp</div>
         </div>
 
         <div class="line center">&nbsp</span></div>
 
         <div>
-          <div class="line connector">&nbsp</div>
-          <div class="line player-line wider">&nbsp</div>
+          <div class="line eight-double-elim-connector">&nbsp</div>
+          <div class="line player-line eight-double-elim-wide">&nbsp</div>
           <div class="line">&nbsp</div>
         </div>
 
@@ -84,15 +84,15 @@
 
         <div>
           <div class="line">&nbsp</div>
-          <div class="line player-line wider">&nbsp</div>
-          <div class="line connector">&nbsp</div>
+          <div class="line player-line eight-double-elim-wide">&nbsp</div>
+          <div class="line eight-double-elim-connector">&nbsp</div>
         </div>
 
         <div class="line center">&nbsp</div>
 
         <div>
-          <div class="line connector">&nbsp</div>
-          <div class="line player-line wider">&nbsp</div>
+          <div class="line eight-double-elim-connector">&nbsp</div>
+          <div class="line player-line eight-double-elim-wide">&nbsp</div>
           <div class="line">&nbsp</div>
         </div>
 
@@ -100,15 +100,15 @@
 
         <div>
           <div class="line">&nbsp</div>
-          <div class="line  player-line wider">&nbsp</div>
-          <div class="line connector">&nbsp</div>
+          <div class="line  player-line eight-double-elim-wide">&nbsp</div>
+          <div class="line eight-double-elim-connector">&nbsp</div>
         </div>
 
         <div class="line center">&nbsp</span></div>
 
         <div>
-          <div class="line connector">&nbsp</div>
-          <div class="line player-line wider">&nbsp</div>
+          <div class="line eight-double-elim-connector">&nbsp</div>
+          <div class="line player-line eight-double-elim-wide">&nbsp</div>
           <div class="line">&nbsp</div>
         </div>
 
@@ -116,15 +116,15 @@
 
         <div>
           <div class="line">&nbsp</div>
-          <div class="line player-line wider">&nbsp</div>
-          <div class="line connector">&nbsp</div>
+          <div class="line player-line eight-double-elim-wide">&nbsp</div>
+          <div class="line eight-double-elim-connector">&nbsp</div>
         </div>
 
         <div class="line center">&nbsp</div>
 
         <div>
-          <div class="line connector">&nbsp</div>
-          <div class="line player-line wider">&nbsp</div>
+          <div class="line eight-double-elim-connector">&nbsp</div>
+          <div class="line player-line eight-double-elim-wide">&nbsp</div>
           <div class="line">&nbsp</div>
         </div>        
 
@@ -132,15 +132,15 @@
         <div class="row ">&nbsp</div>
         <div>
           <div class="line">&nbsp</div>
-          <div class="line player-line wider">&nbsp</div>
-          <div class="line bigger-connector">&nbsp</div>
+          <div class="line player-line eight-double-elim-wide">&nbsp</div>
+          <div class="line eight-double-elim-bigger-connector">&nbsp</div>
         </div>
 
         <div class="line center">&nbsp</div>
 
         <div>          
-          <div class="line bigger-connector">&nbsp</div>
-          <div class="line player-line wider">&nbsp</div>
+          <div class="line eight-double-elim-bigger-connector">&nbsp</div>
+          <div class="line player-line eight-double-elim-wide">&nbsp</div>
           <div class="line">&nbsp</div>        
         </div>
         <div>&nbsp</div>       
@@ -148,26 +148,26 @@
         <div>&nbsp</div>
         <div>
           <div class="line">&nbsp</div>
-          <div class="line player-line wider">&nbsp</div>
-          <div class="line bigger-connector">&nbsp</div>
+          <div class="line player-line eight-double-elim-wide">&nbsp</div>
+          <div class="line eight-double-elim-bigger-connector">&nbsp</div>
         </div>
 
         <div class="line center">&nbsp</div>
 
         <div>          
-          <div class="line bigger-connector">&nbsp</div>
-          <div class="line player-line wider">&nbsp</div>
+          <div class="line eight-double-elim-bigger-connector">&nbsp</div>
+          <div class="line player-line eight-double-elim-wide">&nbsp</div>
           <div class="line">&nbsp</div>        
         </div>
         
       </div>
 
-      <div class="custom-width-2 columns">
+      <div class="custom-width-3 columns">
         <div class="row ">&nbsp</div>
         <% if @all_player_spots[8] %>
           <div class="row player even round2 text-center"><%=@all_player_spots[8]%></div>
         <% else %>
-          <div class="row player even round2 text-center">round 1 victor</div>
+          <div class="row player even round2 text-center">victor</div>
         <% end %>
         <div class="row ">&nbsp</div>  
         <div class="row ">&nbsp</div>
@@ -175,7 +175,7 @@
         <% if @all_player_spots[9] %>
           <div class="row player odd round2 text-center"><%=@all_player_spots[9]%></div>
         <% else %>
-          <div class="row player odd round2 text-center">round 1 victor</div>
+          <div class="row player odd round2 text-center">victor</div>
         <% end %>
         <div class="row ">&nbsp</div>
         <div class="row ">&nbsp</div>
@@ -183,7 +183,7 @@
         <% if @all_player_spots[10] %>
           <div class="row player even round2 text-center"><%=@all_player_spots[10]%></div>
         <% else %>
-          <div class="row player even round2 text-center">round 1 victor</div>
+          <div class="row player even round2 text-center">victor</div>
         <% end %>
         <div class="row ">&nbsp</div>  
         <div class="row ">&nbsp</div>
@@ -191,14 +191,14 @@
         <% if @all_player_spots[11] %>
           <div class="row player odd round2 text-center"><%=@all_player_spots[11]%></div>
         <% else %>
-          <div class="row player odd round2 text-center">round 1 victor</div>
+          <div class="row player odd round2 text-center">victor</div>
         <% end %>
         <div class="row ">&nbsp</div>
    
          <% if @all_player_spots[13] %>
            <div class="row player odd round2 text-center"><%=@all_player_spots[13]%></div>
          <% else %>
-           <div class="row player odd round2 text-center">Loser Spot 5</div>
+           <div class="row player odd round2 text-center">Loser 5</div>
          <% end %>
         <div class="row">&nbsp</div>
         <div class="row">&nbsp</div>
@@ -216,7 +216,7 @@
         <% if @all_player_spots[13] %>
           <div class="row player odd round2 text-center"><%=@all_player_spots[13]%></div>
         <% else %>
-          <div class="row player odd round2 text-center">Loser Spot 6</div>
+          <div class="row player odd round2 text-center">Loser 6</div>
         <% end %>
         <div class="row">&nbsp</div>
         <div class="row">&nbsp</div>
@@ -229,19 +229,19 @@
         <% end %>
       </div>
 
-      <div class="custom-width-2 columns spacer">
+      <div class="custom-width-3 columns spacer">
         <div>&nbsp</div>
         <div>
           <div class="line">&nbsp</div>
-          <div class="line player-line wider">&nbsp</div>
-          <div class="line bigger-connector">&nbsp</div>
+          <div class="line player-line eight-double-elim-wider">&nbsp</div>
+          <div class="line eight-double-elim-bigger-connector">&nbsp</div>
         </div>
 
-        <div class="line center">&nbsp</div>
+        <div class="line wider-center">&nbsp</div>
 
         <div>          
-          <div class="line bigger-connector">&nbsp</div>
-          <div class="line player-line wider">&nbsp</div>
+          <div class="line eight-double-elim-bigger-connector">&nbsp</div>
+          <div class="line player-line eight-double-elim-wider">&nbsp</div>
           <div class="line">&nbsp</div>        
         </div>
         <div>&nbsp</div>
@@ -249,30 +249,30 @@
         <div>&nbsp</div>
         <div>
           <div class="line">&nbsp</div>
-          <div class="line player-line wider">&nbsp</div>
-          <div class="line bigger-connector">&nbsp</div>
+          <div class="line player-line eight-double-elim-wider">&nbsp</div>
+          <div class="line eight-double-elim-bigger-connector">&nbsp</div>
         </div>
 
         <div class="line center">&nbsp</div>
 
         <div>          
-          <div class="line bigger-connector">&nbsp</div>
-          <div class="line player-line wider">&nbsp</div>
+          <div class="line eight-double-elim-bigger-connector">&nbsp</div>
+          <div class="line player-line eight-double-elim-wider">&nbsp</div>
           <div class="line">&nbsp</div>        
         </div>
         <div>&nbsp</div>    
         
         <div>
           <div class="line">&nbsp</div>
-          <div class="line player-line wider">&nbsp</div>
-          <div class="line bigger-connector">&nbsp</div>
+          <div class="line player-line eight-double-elim-wider">&nbsp</div>
+          <div class="line eight-double-elim-bigger-connector">&nbsp</div>
         </div>
 
         <div class="line center">&nbsp</div>
 
         <div>          
-          <div class="line bigger-connector">&nbsp</div>
-          <div class="line player-line wider">&nbsp</div>
+          <div class="line eight-double-elim-bigger-connector">&nbsp</div>
+          <div class="line player-line eight-double-elim-wider">&nbsp</div>
           <div class="line">&nbsp</div>        
         </div>
 
@@ -281,27 +281,27 @@
         <div>&nbsp</div>
         <div>
           <div class="line">&nbsp</div>
-          <div class="line player-line wider">&nbsp</div>
-          <div class="line bigger-connector">&nbsp</div>
+          <div class="line player-line eight-double-elim-wider">&nbsp</div>
+          <div class="line eight-double-elim-bigger-connector">&nbsp</div>
         </div>
 
         <div class="line center">&nbsp</div>
 
         <div>          
-          <div class="line bigger-connector">&nbsp</div>
-          <div class="line player-line wider">&nbsp</div>
+          <div class="line eight-double-elim-bigger-connector">&nbsp</div>
+          <div class="line player-line eight-double-elim-wider">&nbsp</div>
           <div class="line">&nbsp</div>        
         </div>
       </div>
 
-      <div class="custom-width-2 columns">
+      <div class="custom-width-3 columns">
         <div class="row">&nbsp</div>
         <div class="row">&nbsp</div>
         <div class="row">&nbsp</div>
         <% if @all_player_spots[12] %>
           <div class="row player even round2 text-center"><%=@all_player_spots[12]%></div>
         <% else %>
-          <div class="row player even round2 text-center">round 2 victor</div>
+          <div class="row player even round2 text-center">victor</div>
         <% end %>
         <div class="row">&nbsp</div>
         <div class="row">&nbsp</div>
@@ -313,11 +313,12 @@
         <% if @all_player_spots[13] %>
           <div class="row player odd round2 text-center"><%=@all_player_spots[13]%></div>
         <% else %>
-          <div class="row player odd round2 text-center">round 2 victor</div>
+          <div class="row player odd round2 text-center">victor</div>
         <% end %>
         <div class="row">&nbsp</div>
+
+        <div class="row player even round2 text-center ">Loser 7</div>  
         <div class="row">&nbsp</div>
-        <div class="row">&nbsp</div>      
         <div>&nbsp</div>       
         <div>&nbsp</div>
         <% if @all_player_spots[13] %>
@@ -339,21 +340,21 @@
         <% end %>
       </div>
 
-      <div class="custom-width-2 columns spacer">
+      <div class="custom-width-3 columns spacer">
         <div>&nbsp</div>      
         <div>&nbsp</div>      
         <div>&nbsp</div>      
         <div>
           <div class="line">&nbsp</div>
-          <div class="line player-line even-wider">&nbsp</div>
-          <div class="line even-bigger-connector">&nbsp</div>
+          <div class="line player-line eight-double-elim-wider">&nbsp</div>
+          <div class="line eight-double-elim-even-bigger-connector">&nbsp</div>
         </div>
 
         <div class="line wider-center">&nbsp</div>      
 
         <div>          
-          <div class="line even-bigger-connector">&nbsp</div>
-          <div class="line player-line even-wider">&nbsp</div>
+          <div class="line eight-double-elim-even-bigger-connector">&nbsp</div>
+          <div class="line player-line eight-double-elim-wider">&nbsp</div>
           <div class="line">&nbsp</div>        
         </div>  
 
@@ -364,21 +365,21 @@
         <div>&nbsp</div>      
         <div>
           <div class="line">&nbsp</div>
-          <div class="line player-line even-wider">&nbsp</div>
-          <div class="line even-bigger-connector">&nbsp</div>
+          <div class="line player-line eight-double-elim-wider">&nbsp</div>
+          <div class="line eight-double-elim-even-bigger-connector">&nbsp</div>
         </div>
 
         <div class="line wider-center">&nbsp</div>      
 
         <div>          
-          <div class="line even-bigger-connector">&nbsp</div>
-          <div class="line player-line even-wider">&nbsp</div>
+          <div class="line eight-double-elim-even-bigger-connector">&nbsp</div>
+          <div class="line player-line eight-double-elim-wider">&nbsp</div>
           <div class="line">&nbsp</div>        
         </div>  
   
       </div>
 
-      <div class="custom-width-2 columns">
+      <div class="custom-width-3 columns">
         <div>&nbsp</div>      
         <div>&nbsp</div>      
         <div>&nbsp</div>      
@@ -386,27 +387,117 @@
         <div>&nbsp</div>
         <div>&nbsp</div>
         <div>&nbsp</div>
-        <div class="player champion text-center "> victor</div>
+        <div class="row player champion text-center "> victor</div>
         <div>&nbsp</div>
         <div>&nbsp</div>
         <div>&nbsp</div>
         <div>&nbsp</div>
         <div>&nbsp</div>
         <div>&nbsp</div>
-        <div class="player champion text-center ">Loser Spot </div>
         <div>&nbsp</div>
         <div>&nbsp</div>
         <div>&nbsp</div>
         <div>&nbsp</div>
         <div>&nbsp</div>
         <div>&nbsp</div>
-        <div class="player champion text-center ">victor</div>
+        <div>&nbsp</div>
+        <div class="row player champion text-center ">victor</div>
       </div>
-      <div class="custom-width-2 columns">
+
+      <div class="custom-width-3 columns">
+        <div>&nbsp</div>      
+        <div>&nbsp</div>      
+        <div>&nbsp</div>      
+        <div>&nbsp</div>     
+        <div>&nbsp</div>      
+        <div>&nbsp</div>      
+        <div>&nbsp</div>      
+        <div>&nbsp</div>      
+        <div>&nbsp</div>   
+        <div>&nbsp</div>     
+        <div>&nbsp</div>      
+        <div>&nbsp</div>      
+        <div>&nbsp</div>      
+  
+        <div>
+          <div class="line">&nbsp</div>
+          <div class="line player-line eight-double-elim-extra-long">&nbsp</div>
+          <div class="line eight-double-elim-even-bigger-connector">&nbsp</div>
+        </div>
+
+        <div class="line wider-center">&nbsp</div>      
+
+        <div>          
+          <div class="line eight-double-elim-even-bigger-connector">&nbsp</div>
+          <div class="line player-line eight-double-elim-wider">&nbsp</div>
+          <div class="line">&nbsp</div>        
+        </div>  
       </div>
-      <div class="custom-width-2 columns">
+
+      <div class="custom-width-3 columns">
+        <div>&nbsp</div>      
+        <div>&nbsp</div>      
+        <div>&nbsp</div>      
+        <div>&nbsp</div>     
+        <div>&nbsp</div>      
+        <div>&nbsp</div>      
+        <div>&nbsp</div>      
+        <div>&nbsp</div>
+        <div>&nbsp</div>   
+        <div>&nbsp</div>     
+        <div>&nbsp</div>      
+        <div>&nbsp</div>      
+        <div>INDICATOR</div>    
+        <div>&nbsp</div>      
+        <div>&nbsp</div>      
+        <div>&nbsp</div>  
+        <div>&nbsp</div>    
+        <div class="row player champion text-center ">victor</div>
       </div>
-      <div class="custom-width-2 columns">
+
+      <div class="custom-width-3 columns">
+        <div>&nbsp</div>      
+        <div>&nbsp</div>      
+        <div>&nbsp</div>      
+        <div>&nbsp</div>     
+        <div>&nbsp</div>      
+        <div>&nbsp</div>      
+        <div>&nbsp</div>      
+     
+        <div>
+          <div class="line">&nbsp</div>
+          <div class="line player-line eight-double-elim-extra-long">&nbsp</div>
+
+          <div class="line eight-double-elim-final-connector">&nbsp</div>
+        </div>
+
+        <div class="line wider-center">&nbsp</div>      
+
+        <div>          
+          <div class="line eight-double-elim-final-connector">&nbsp</div>
+          <div class="line player-line eight-double-elim-wider">&nbsp</div>
+          <div class="line">&nbsp</div>        
+        </div>  
+
+        
       </div>
+
+      <div class="custom-width-3 columns">
+        <div>&nbsp</div>      
+        <div>&nbsp</div>      
+        <div>&nbsp</div>      
+        <div>&nbsp</div>     
+        <div>&nbsp</div>      
+        <div>&nbsp</div>      
+        <div>&nbsp</div>      
+        <div>&nbsp</div>      
+        <div>&nbsp</div>      
+        <div>&nbsp</div>      
+        <div>&nbsp</div>     
+        <div>&nbsp</div>      
+   
+        <div class="row player champion text-center ">victor</div>
+      </div>
+
 
   </div>
