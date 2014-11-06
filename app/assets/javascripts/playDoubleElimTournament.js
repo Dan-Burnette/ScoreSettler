@@ -279,8 +279,7 @@ $('.player-de').on('click', function() {
     matchUpdateJSON.player2 = playerName;
   }
 
-  // console.log(matchUpdateJSON);
-  // WHAT IS WRONG HERE
+  console.log(matchUpdateJSON);
   $.ajax({
     url: '/tournaments/' + tournament_id + '/matches/' + match_id,
     dataType: 'json',
