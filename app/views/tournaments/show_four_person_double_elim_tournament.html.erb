@@ -32,13 +32,13 @@
         <% if @all_player_spots[4] %>
           <div class="row player-de even text-center"><%=@all_player_spots[4]%></div>
         <% else %>
-          <div class="row player-de even text-center"> victor</div>
+          <div class="row player-de even text-center">Loser</div>
         <% end %>
         <div class="row ">&nbsp</div>
         <% if @all_player_spots[5] %>
           <div class="row player-de odd  text-center"><%=@all_player_spots[5]%></div>
         <% else %>
-          <div class="row player-de odd text-center">victor</div>
+          <div class="row player-de odd text-center">Loser</div>
         <% end %>
         <div class="row ">&nbsp</div>
       </div>
@@ -98,7 +98,7 @@
         <% if @all_player_spots[6] %>
           <div class="row player-de even text-center"><%=@all_player_spots[6]%></div>
         <% else %>
-          <div class="row player-de even  text-center">victor</div>
+          <div class="row player-de even  text-center">Victor</div>
         <% end %>
         <div class="row ">&nbsp</div>  
         <div class="row ">&nbsp</div>
@@ -106,7 +106,7 @@
         <% if @all_player_spots[7] %>
           <div class="row player-de odd text-center"><%=@all_player_spots[7]%></div>
         <% else %>
-          <div class="row player-de odd text-center">victor</div>
+          <div class="row player-de odd text-center">Victor</div>
         <% end %>
         <div class="row ">&nbsp</div>
         
@@ -170,7 +170,7 @@
         <% end %>
         <div class="row">&nbsp</div>
         <div class="row">&nbsp</div>
-        <div class="row text-center finals indicator">Loser Wins: 0</div>      
+        <div class="row text-center finals indicator">&nbsp</div>      
         <div class="row">&nbsp</div>   
         <div class="row">&nbsp</div>
 
@@ -180,7 +180,7 @@
           <div class="row player-de odd winner text-center">Loser's champ</div>
         <% end %>
         <div class="row">&nbsp</div>
-        <div class="row text-center finals indicator ">Loser bracket Champ must win twice</div>
+        <div hidden class="row text-center finals">Loser bracket Champ must win twice</div>
 
       </div>
       <div class="custom-width-1 columns">
