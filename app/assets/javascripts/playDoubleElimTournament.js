@@ -4,6 +4,7 @@
 //"de" short for double eliminaton in classes in the view DE views
 var loserBracketChampWins = 0;
 var onLastMatch = false;
+var playedExtraMatch = false;
 $('.player-de').on('click', function() {
 
   var $allPlayerSpots = $('.player-de');
@@ -105,7 +106,8 @@ $('.player-de').on('click', function() {
         var next_match = $('.match_7_id').val();
         var next_match_player = 'player2';
         $('.indicator').text('Loser wins:' + loserBracketChampWins);
-        onLastMatch = true
+        onLastMatch = true;
+        playedExtraMatch = true;
       }  
     }
   }
@@ -229,12 +231,14 @@ $('.player-de').on('click', function() {
       }
       //loserBracketChamp has won tournament
       else if (loserBracketChampWins == 1){
+
         loserBracketChampWins+=1;
         var spotToFill = winner;
         var match_id = $('.match_15_id').val();
         var next_match = $('.match_15_id').val();
         var next_match_player = 'player2';
         $('.indicator').text('Loser wins:' + loserBracketChampWins);
+        playedExtraMatch = true;
         onLastMatch = true
       }
     }
@@ -332,5 +336,8 @@ $('.player-de').on('click', function() {
       data: tournamentUpdateJSON
     })
   }
+
+  //Delete the last match if it was never played
+
 
 });

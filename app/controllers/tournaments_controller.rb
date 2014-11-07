@@ -120,10 +120,18 @@ class TournamentsController < ApplicationController
 
   end
 
+  #Updating the tournament champion
   def update
     tournament = Tournament.find(params[:id])
     champion_id = User.find_by(username: params[:winner]).id
     tournament.update(champion_id: champion_id)
+
+    # If the last match winner id is nil, it was a double elim match that never had to be played. 
+    # May as well delete it
+    if (tournament.matches.last.winner_id == nil)
+      Match.destroy(tournament.matches.last.id)
+    end
+
   end
 
   def tournament_params
