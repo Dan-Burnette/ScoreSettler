@@ -337,7 +337,8 @@ $('.player-de').on('click', function() {
     })
   }
 
-  //Delete the last match if it was never played
+
+  
 
 
 });
