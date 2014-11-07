@@ -84,7 +84,6 @@ $('.player-de').on('click', function() {
         onLastMatch = true;
         // var next_match_player = 'player1';
       }
-
     }
     // Loser bracket champ wins one, must play another match
     else if (playerPosition == 11){
@@ -204,9 +203,17 @@ $('.player-de').on('click', function() {
     }
     // Winner bracket champ beats loser bracket champ
     else if(playerPosition == 26){
-      var spotToFill = winner;
-      var match_id = $('.match_14_id').val();
-      //Just leave the unplayed match as everything nil
+     var spotToFill = winner;
+     if (loserBracketChampWins == 1) {
+       var match_id = $('.match_15_id').val();
+       onLastMatch = true;
+     }
+     else {
+       var match_id = $('.match_14_id').val();
+       // var next_match = $('.match_7_id').val();
+       onLastMatch = true;
+       // var next_match_player = 'player1';
+     }
     }
     // Loser bracket champ wins one, must play another match
     else if (playerPosition == 27){
@@ -214,6 +221,8 @@ $('.player-de').on('click', function() {
       // You must play another match, display indicator
       if (loserBracketChampWins == 0){
         var match_id = $('.match_14_id').val();
+        var next_match = $('.match_15_id').val();
+        var next_match_player = 'player2';
         loserBracketChampWins+=1;
         $('.finals').show();
         $('.indicator').text('Loser wins:' + loserBracketChampWins);
@@ -223,8 +232,11 @@ $('.player-de').on('click', function() {
         loserBracketChampWins+=1;
         var spotToFill = winner;
         var match_id = $('.match_15_id').val();
+        var next_match = $('.match_15_id').val();
+        var next_match_player = 'player2';
         $('.indicator').text('Loser wins:' + loserBracketChampWins);
-      }  
+        onLastMatch = true
+      }
     }
   }
 
