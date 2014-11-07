@@ -122,26 +122,16 @@ $('.player').on('click', function() {
       match : match_id,
       winner : matchWinner,
       next_match :next_match,
-      next_match_player :next_match_player,
+      next_match_player :next_match_player
     }
-  //Doesn't work for Final MATCH! Misallocates a name!
+
   if (whichPlayer == "player1"){  
-    if (onLastMatch) {
-      matchUpdateJSON.player2 = $otherPlayer.text();
-    }
-    else {
-      matchUpdateJSON.player1 = playerName;
-      matchUpdateJSON.player2 = otherPlayerName;
-    }
+    matchUpdateJSON.player1 = playerName;
+    matchUpdateJSON.player2 = otherPlayerName;
   }
   else if (whichPlayer == 'player2'){
-    if (onLastMatch) {
-      matchUpdateJSON.player1 = $otherPlayer.text();
-    }
-    else {
-      matchUpdateJSON.player1 = otherPlayerName;
-      matchUpdateJSON.player2 = playerName;
-    }
+    matchUpdateJSON.player1 = otherPlayerName;
+    matchUpdateJSON.player2 = playerName;
   }
 
   console.log(matchUpdateJSON);

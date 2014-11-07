@@ -16,6 +16,7 @@ class MatchesController < ApplicationController
   #Recieves AJAX request from playTournament.js when tournament changes
   def update
     tournament_id = params[:tournament_id].to_i
+
     player_1 = User.find_by(username: params[:player1])
     #will be nil if the player was a bye
     if (player_1 != nil)
@@ -32,8 +33,12 @@ class MatchesController < ApplicationController
     match.update(winner_id: winner_id, player_1: player_1, player_2: player_2, tournament_id: tournament_id)
     
     # Fill the next match with the victor of the other match into p1 or p2 
-    next_match = Match.find(params[:next_match].to_i)
-    next_match_player = params[:next_match_player]
+    if (params[:next_match] && params[:next_match_player])
+      next_match = Match.find(params[:next_match].to_i)
+      next_match_player = params[:next_match_player]
+    end
+
+  
     if (next_match_player == 'player1')
       next_match.update(player_1: winner_id)
     elsif (next_match_player == 'player2')

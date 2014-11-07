@@ -3,9 +3,9 @@
 //server to update the state of the tournament
 //"de" short for double eliminaton in classes in the view DE views
 var loserBracketChampWins = 0;
-
+var onLastMatch = false;
 $('.player-de').on('click', function() {
-  var onLastMatch = false;
+
   var $allPlayerSpots = $('.player-de');
   if ($allPlayerSpots.size() == 13){
     var tournamentSize = 4;
@@ -14,7 +14,6 @@ $('.player-de').on('click', function() {
     var tournamentSize = 8;
   }
 
-  console.log('size is', tournamentSize);
   var playerPosition = $allPlayerSpots.index($(this));
 
   //Find the other player in that match
@@ -75,9 +74,17 @@ $('.player-de').on('click', function() {
     // Winner bracket champ beats loser bracket champ
     else if(playerPosition == 10){
       var spotToFill = winner;
-      var match_id = $('.match_6_id').val();
-      onLastMatch = true;
-      //Just leave the unplayed match as everything nil
+      if (loserBracketChampWins == 1) {
+        var match_id = $('.match_7_id').val();
+        onLastMatch = true;
+      }
+      else {
+        var match_id = $('.match_6_id').val();
+        // var next_match = $('.match_7_id').val();
+        onLastMatch = true;
+        // var next_match_player = 'player1';
+      }
+
     }
     // Loser bracket champ wins one, must play another match
     else if (playerPosition == 11){
@@ -96,6 +103,8 @@ $('.player-de').on('click', function() {
         loserBracketChampWins+=1;
         var spotToFill = winner;
         var match_id = $('.match_7_id').val();
+        var next_match = $('.match_7_id').val();
+        var next_match_player = 'player2';
         $('.indicator').text('Loser wins:' + loserBracketChampWins);
         onLastMatch = true
       }  
@@ -260,7 +269,8 @@ $('.player-de').on('click', function() {
 
   // AJAX to update the tournament's matches on the server
   var tournament_id = $('.tournament_id').val();
-  var matchWinner = $(spotToFill).text(); 
+  var matchWinner = $(this).text(); 
+
   var matchUpdateJSON = 
     {
       tournament : tournament_id,
@@ -271,15 +281,26 @@ $('.player-de').on('click', function() {
     }
 
   if (whichPlayer == "player1"){  
-    matchUpdateJSON.player1 = playerName;
-    matchUpdateJSON.player2 = otherPlayerName;
+    if (onLastMatch) {
+      matchUpdateJSON.player2 = $(otherPlayer).text();
+      matchUpdateJSON.player1 = playerName;
+    }
+    else {
+      matchUpdateJSON.player1 = playerName;
+      matchUpdateJSON.player2 = otherPlayerName;
+    }
   }
   else if (whichPlayer == 'player2'){
-    matchUpdateJSON.player1 = otherPlayerName;
-    matchUpdateJSON.player2 = playerName;
+    if (onLastMatch) {
+      matchUpdateJSON.player1 = $(otherPlayer).text();
+      matchUpdateJSON.player2 = playerName;
+    }
+    else {
+      matchUpdateJSON.player1 = otherPlayerName;
+      matchUpdateJSON.player2 = playerName;
+    }
   }
 
-  console.log(matchUpdateJSON);
   $.ajax({
     url: '/tournaments/' + tournament_id + '/matches/' + match_id,
     dataType: 'json',
@@ -287,12 +308,11 @@ $('.player-de').on('click', function() {
     data: matchUpdateJSON
   })
 
-  console.log(onLastMatch);
+
   // If on the last match, AJAX to update the tournament winner
   if (onLastMatch) {
-    console.log("ON LAST MATCH!");
+    console.log("FIRING TOURNAMENT WINNER UPDATE");
     var tournamentUpdateJSON = {winner: $(winner).text()};
-    console.log(tournamentUpdateJSON);
     $.ajax({
       url: '/tournaments/' + tournament_id,
       dataType: 'json',
