@@ -42,9 +42,9 @@ class TournamentsController < ApplicationController
       puts tournament.size
 
       #Create all  matches for the tournament
-      if (tournament.double_elim != true)
+      if (!tournament.double_elim)
         (t_size-1).times {tournament.matches.create()}
-      elsif (tournament.double_elim == true)
+      elsif (tournament.double_elim)
         (t_size*2 - 1).times {tournament.matches.create()}
       end
       #populate the first round with players
@@ -70,12 +70,6 @@ class TournamentsController < ApplicationController
     end 
   end
 
-  def test_double_elim
-    @all_player_spots = ['scutt','rutt','butt','mutt']
-    render 'show_four_person_double_elim_tournament'
-  end
-
-
   def show
     @tournament = Tournament.find(params[:id])
     @matches = @tournament.matches.sort
@@ -84,20 +78,39 @@ class TournamentsController < ApplicationController
     #so that they can be populated in 
     #the view if tournament is in progress
     @all_player_spots = [];
-    for i in 0...@tournament.size-1
-      p1 = User.find_by(id: (@matches[i].player_1.to_i))
-      p2 = User.find_by(id: (@matches[i].player_2.to_i))
-      if p1 != nil
-        @all_player_spots.push(p1.username)
-      else
-        @all_player_spots.push(nil)
+    if (!@tournament.double_elim)
+      for i in 0...@tournament.size - 1 
+        p1 = User.find_by(id: (@matches[i].player_1.to_i))
+        p2 = User.find_by(id: (@matches[i].player_2.to_i))
+        if p1 != nil
+          @all_player_spots.push(p1.username)
+        else
+          @all_player_spots.push(nil)
+        end
+        if p2 != nil
+          @all_player_spots.push(p2.username)
+        else
+          @all_player_spots.push(nil)
+        end
       end
-      if p2 != nil
-        @all_player_spots.push(p2.username)
-      else
-        @all_player_spots.push(nil)
+    elsif (@tournament.double_elim)
+      for i in 0...(2*@tournament.size - 1) 
+        p1 = User.find_by(id: (@matches[i].player_1.to_i))
+        p2 = User.find_by(id: (@matches[i].player_2.to_i))
+        if p1 != nil
+          @all_player_spots.push(p1.username)
+        else
+          @all_player_spots.push(nil)
+        end
+        if p2 != nil
+          @all_player_spots.push(p2.username)
+        else
+          @all_player_spots.push(nil)
+        end
       end
     end
+    
+
     puts @all_player_spots.inspect
     case @tournament.size
     when 4
