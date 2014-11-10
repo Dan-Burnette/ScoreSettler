@@ -150,7 +150,7 @@ $('.player-de').on('click', function() {
       var spotToFill = $roundTwoSpots.get(5);
       var match_id = $('.match_5_id').val();
       var next_match = $('.match_9_id').val();
-      var next_match_player = 'player1';
+      var next_match_player = 'player2';
     }
     else if (playerPosition == 10 || playerPosition == 11) {
       var spotToFill = $roundTwoSpots.get(7) ;
