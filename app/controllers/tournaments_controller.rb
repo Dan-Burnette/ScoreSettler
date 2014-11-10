@@ -48,7 +48,6 @@ class TournamentsController < ApplicationController
     end
   end
 
-
   #Updating the tournament champion when the tournament is completed
   def update
     tournament = Tournament.find(params[:id])
