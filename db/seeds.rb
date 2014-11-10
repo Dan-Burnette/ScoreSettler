@@ -46,6 +46,12 @@ ben.username = "ben"
 ben.password = "benbenben"
 ben.save!
 
+billyBob = User.new
+billyBob.email = "BillyBob@BillyBob.com"
+billyBob.username = "BillyBob"
+billyBob.password = "BillyBobBillyBobBillyBob"
+billyBob.save!
+
 
 MKS = Group.create(name: "MKS Gamers", admin_id: 1)
 MKS.memberships.create(user_id: dan.id, status: "active")
@@ -56,7 +62,7 @@ MKS.memberships.create(user_id: gilbert.id, status: "active")
 MKS.memberships.create(user_id: bradley.id, status: "active")
 MKS.memberships.create(user_id: darrell.id, status: "active")
 MKS.memberships.create(user_id: ben.id, status: "active")
-
+MKS.memberships.create(user_id: billyBob.id, status: "active")
 
 
 

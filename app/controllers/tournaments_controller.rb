@@ -1,73 +1,29 @@
 class TournamentsController < ApplicationController
   before_action :authenticate_user!
 
- #Create tournament, randomize players, make its matches, redirect to it's view if successful
+ #Create tournament and necessary setups
   def create
     #Setting up the players 
-    player_names = params[:players]
-    player_count = player_names.size
-    if (player_count <= 4)
-      byes = 4 - player_count
-      t_size = 4
-    elsif (player_count <= 8)
-      byes = 8 - player_count
-      t_size = 8
-    elsif (player_count <= 16)
-      byes = 16 - player_count
-      t_size = 16
-    else
-      t_size = 'too big'
-    end
+    setup = SetupPlayers.run(params[:players])
+    t_size = setup[:t_size]
+    player_names = setup[:player_names]
   
-    byes.times { player_names.push("bye") }
-    player_names.shuffle!
-
     #Actual tournament creation
     if (t_size != 'too big')
       tournament = Tournament.new(tournament_params)
       tournament.size = t_size
       if (tournament.save)
-        session[:players] = player_names
         redirect_to tournament_path(tournament.id)
-      else
-        #error did not save !
+        #Match setup for the tournament
+        SetupMatches.run(tournament, t_size, player_names)
       end
     else
+      puts "IN THE ELSE----------------------"
       #error t_size too big
+      flash[:alert] = "You chose a size that is currently unsupported. Please choose a smaller size."
+      redirect_to group_path(params[:tournament][:group_id])
     end
 
-    #Match setup 
-    if (tournament != nil)
-      puts tournament.double_elim
-      puts tournament.size
-
-      #Create all  matches for the tournament
-      if (!tournament.double_elim)
-        (t_size-1).times {tournament.matches.create()}
-      elsif (tournament.double_elim)
-        (t_size*2 - 1).times {tournament.matches.create()}
-      end
-      #populate the first round with players
-      players = []
-      player_names.each do |p|
-       found = players.push(User.find_by(username: p))
-      end
-      ind = 0
-      for i in 0...t_size/2
-        #if nil, means that the spot is a bye, not a player
-        if (players[ind] != nil)
-          tournament.matches[i].update(player_1: players[ind].id)
-        end
-        if (players[ind+1] != nil)
-          tournament.matches[i].update(player_2: players[ind+1].id)
-        end
-        ind += 2
-        puts tournament.matches[i].inspect
-      end
-    end
-    tournament.matches.each do |m|
-      puts m.inspect
-    end 
   end
 
   def show

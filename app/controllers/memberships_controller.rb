@@ -1,7 +1,7 @@
 class MembershipsController < ApplicationController
   before_action :authenticate_user!
 
-  #called on invite
+  #Called when an admin sends an invite
   def create
     user_id = User.find_by(username: params[:username]).id
     group_id = params[:group_id].to_i
@@ -21,6 +21,8 @@ class MembershipsController < ApplicationController
     end
   end
 
+  #Called when a user accepts an invite and the status of the membership
+  #must change to "active" 
   def update
     user_id = params[:user_id]
     group_id = params[:group_id]
@@ -30,23 +32,8 @@ class MembershipsController < ApplicationController
     redirect_to :back, status: 303
   end
 
-  #Kick a user out a group or remove himself from a group
-  def destroy
-  end
-
-
   def membership_params
     params.require(:membership).permit(:user_id, :group_id, :status)
   end
 
-
-#---Not used--------------------------------------------
-
-  #Show a user all his memberships on his user show page
-  # def index
-  # end
-
-  #no need to ever show a single membership
-  # def show
-  # end
 end

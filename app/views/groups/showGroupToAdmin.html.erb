@@ -4,6 +4,9 @@
 <h1><%= @group.name %> </h1>
 <div class="spacer large-1 columns">&nbsp</div>
 	<section class="large-3 columns admin-view panel content">
+		<% if flash[:alert] %>
+			<p class="error"> <%=flash[:alert]%></p>
+		<%end%>
 	<!-- Creating a new tournament -->
 		<h2>Admin Console </h2>
 		<h3>Start a new tournament for this group</h3>

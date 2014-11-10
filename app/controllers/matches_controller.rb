@@ -48,9 +48,7 @@ class MatchesController < ApplicationController
     redirect_to tournament_path(tournament_id), status: 303
   end
 
-  #Never need to show an individual match
-  # def show
-  # end
+
 
   def match_params
     params.require(:match).permit(:player_1, :player_2, :tournament_id, :winner_id)
