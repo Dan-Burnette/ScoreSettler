@@ -134,8 +134,6 @@ $('.player').on('click', function() {
     matchUpdateJSON.player2 = playerName;
   }
 
-  console.log(matchUpdateJSON);
-
   $.ajax({
     url: '/tournaments/' + tournament_id + '/matches/' + match_id,
     dataType: 'json',
@@ -146,7 +144,6 @@ $('.player').on('click', function() {
   //If on the last match, AJAX to update the tournament winner
   if (onLastMatch){
     var tournamentUpdateJSON = {winner: $(winner).text()};
-    console.log(tournamentUpdateJSON);
     $.ajax({
       url: '/tournaments/' + tournament_id,
       dataType: 'json',

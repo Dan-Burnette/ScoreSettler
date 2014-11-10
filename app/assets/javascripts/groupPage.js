@@ -1,3 +1,4 @@
+//Make table sortable
 $(document).ready(function() 
     { 
         $(".stats-table").tablesorter({
@@ -33,6 +34,12 @@ $('.invite-user').on('click', function() {
 
 //Keeping track of how many player checkboxes are selected
 var playersSelected = 0;
+$('.check').each(function(){
+	if ($(this).is(':checked')) {
+		playersSelected++;
+	}
+})
+
 $('.check').on('click', function() {
 	if ($(this).is(':checked')) {
 		playersSelected++;

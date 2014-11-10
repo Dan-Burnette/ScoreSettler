@@ -1,3 +1,4 @@
+//Accept a group invitation
 $('.accept-invite').on('click', function() {
 	var userId = $('.user-id').val();
 	var groupId = $('.group-id').val();

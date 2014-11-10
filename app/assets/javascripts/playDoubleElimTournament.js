@@ -31,7 +31,7 @@ $('.player-de').on('click', function() {
   $(this).css('background-color', 'green');
   $(otherPlayer).css('background-color', 'red');
 
-//////////////////
+  //Setup all the positions
   var winnerPosition = $allPlayerSpots.length-1;
   var winner = $allPlayerSpots.get(winnerPosition);
   var winnerBracketChamp = $allPlayerSpots.get(10);
@@ -81,9 +81,7 @@ $('.player-de').on('click', function() {
       }
       else {
         var match_id = $('.match_6_id').val();
-        // var next_match = $('.match_7_id').val();
         onLastMatch = true;
-        // var next_match_player = 'player1';
       }
     }
     // Loser bracket champ wins one, must play another match
@@ -212,9 +210,7 @@ $('.player-de').on('click', function() {
      }
      else {
        var match_id = $('.match_14_id').val();
-       // var next_match = $('.match_7_id').val();
        onLastMatch = true;
-       // var next_match_player = 'player1';
      }
     }
     // Loser bracket champ wins one, must play another match
@@ -271,6 +267,7 @@ $('.player-de').on('click', function() {
     $(this).css('background-color', 'red');
     $(otherPlayer).css('background-color', 'green');
   }
+  //Fill the loser bracket spot
   if (loserSpotToFill) {
     $(loserSpotToFill).text(otherPlayerName);
   } 
@@ -327,7 +324,6 @@ $('.player-de').on('click', function() {
 
   // If on the last match, AJAX to update the tournament winner
   if (onLastMatch) {
-    console.log("FIRING TOURNAMENT WINNER UPDATE");
     var tournamentUpdateJSON = {winner: $(winner).text()};
     $.ajax({
       url: '/tournaments/' + tournament_id,
@@ -336,9 +332,5 @@ $('.player-de').on('click', function() {
       data: tournamentUpdateJSON
     })
   }
-
-
-  
-
 
 });
