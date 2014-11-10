@@ -8,7 +8,8 @@ class GroupsController < ApplicationController
       Membership.create(user_id: current_user.id, group_id: group.id, status: "active")
       redirect_to user_path(current_user.id)
     else
-      #error
+      flash[:alert] = "Group name cannot be blank"
+      redirect_to user_path(current_user.id)
     end
   end
 

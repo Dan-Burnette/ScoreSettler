@@ -26,6 +26,9 @@
 	<% end %>
 </div>
 <div class="large-4 columns content">
+	<% if flash[:alert] %>
+		<p class="error"> <%=flash[:alert]%> </p>
+	<% end %>
 	<h2>Create a group</h2>
 	<label class="group-name">Group Name </label>
 	<%= form_tag groups_path, :class => 'create-group', method: :POST do %>
