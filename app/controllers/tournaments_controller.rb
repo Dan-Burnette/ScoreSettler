@@ -16,7 +16,11 @@ class TournamentsController < ApplicationController
         #Match setup for the tournament
         SetupMatches.run(tournament, t_size, player_names)
         redirect_to tournament_path(tournament.id)
-      end
+       else
+        #Tournament name was blank
+        flash[:alert] = "Tournament name must not be empty!"
+        redirect_to group_path(params[:tournament][:group_id])
+       end
     else
       #error tournament size is too big
       flash[:alert] = "You chose a size that is currently unsupported. Please choose less participants."
