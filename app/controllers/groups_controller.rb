@@ -39,7 +39,7 @@ class GroupsController < ApplicationController
     end
   end
 
-  #populating the head to head table stats if the data has been sent
+  #Populating the head to head table stats if the data has been sent
   def ajax_head_to_head
     if (params[:id])
       info = params[:id].split(',')
