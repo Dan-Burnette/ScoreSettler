@@ -1,6 +1,7 @@
 <%= stylesheet_link_tag "groupPageUser" %>
-<div class="spacer large-2 columns">&nbsp</div>
-	<section class="large-2 columns tournament-listing content">
+	<div class="spacer custom-size columns">&nbsp</div>
+	
+	<section class="large-3 columns tournament-listing content">
 		<!-- Display old tournaments and their victors -->
 		<h3>Completed Tournaments</h3>
 		<% if @complete_tournaments.empty? %>
@@ -14,7 +15,7 @@
 		<% end %>
 	</section>
 	
-	<section class="large-2 columns tournament-listing content">
+	<section class="large-3 columns tournament-listing content">
 		<!-- Link to in progress tournaments -->
 		<h3>Active Tournaments</h3>
 		<% if @incomplete_tournaments.empty?%>
@@ -30,7 +31,7 @@
 
 
 	<!--       Stats section         -->
-	<section class="large-4 columns stats content">
+	<section class="large-3 columns stats content">
 		<h1>Group Stats </h1>
 		<table class="stats-table"> 
 			<thead>
@@ -53,7 +54,7 @@
 
 		<h3 class="head-to-head-title"> Head to Head</h3>
 		<!-- On selection, send AJAX to get the info needed for the table -->
-		
+		<input class="group-id" type="hidden" value=<%=@group.id%> >
 		<select class="user-1 " onchange="changeEventHandler(event);"> 
 			<% @group_users.each do |user| %>
 				<option value="<%=user.username%>"> <%=user.username%> </option>
@@ -79,7 +80,6 @@
 			</tr>
 		</table>
 		
-
 	</section>
 
-<div class="spacer large-2 columns">&nbsp</div>	
+<div class="spacer custom-size columns">&nbsp</div>	
