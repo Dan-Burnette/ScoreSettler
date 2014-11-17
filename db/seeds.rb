@@ -65,4 +65,12 @@ MKS.memberships.create(user_id: ben.id, status: "active")
 MKS.memberships.create(user_id: billyBob.id, status: "active")
 
 
-
+FightingGamePlayers = Group.create(name: "Fighting Game Players", admin_id: 2)
+FightingGamePlayers.memberships.create(user_id: yusef.id, status: "active")
+FightingGamePlayers.memberships.create(user_id: dan.id, status: "pending")
+CollegeFriends = Group.create(name: "College Friends", admin_id: 2)
+CollegeFriends.memberships.create(user_id: yusef.id, status: "active")
+CollegeFriends.memberships.create(user_id: dan.id, status: "pending")
+AustinGamers = Group.create(name: "Austin Gamers", admin_id: 2)
+AustinGamers.memberships.create(user_id: yusef.id, status: "active")
+AustinGamers.memberships.create(user_id: dan.id, status: "pending")

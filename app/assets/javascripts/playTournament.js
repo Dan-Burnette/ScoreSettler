@@ -29,7 +29,7 @@ $('.player').on('click', function() {
       var spotToFill = $roundTwoSpots.get(0);
       var match_id = $('.match_1_id').val();
       var next_match = $('.match_3_id').val();
-      var next_match_player = 'player1'
+      var next_match_player = 'player1';
     }
     else if (playerPosition == 2 || playerPosition == 3){
       var spotToFill = $roundTwoSpots.get(1);

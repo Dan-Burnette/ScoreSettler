@@ -314,6 +314,7 @@ $('.player-de').on('click', function() {
     }
   }
 
+  //Send the Match update request off
   $.ajax({
     url: '/tournaments/' + tournament_id + '/matches/' + match_id,
     dataType: 'json',

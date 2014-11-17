@@ -1,28 +1,7 @@
 == README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This is a project I made while I was a student at the MakerSquare accelerated learning program
 
-Things you may want to cover:
+See it in action at http://scoresettler.herokuapp.com
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+Score Settler is tournament administration web application with social features. It allows you to create a group, invite your friends, and run tournaments within your friend group. Stats are tracked and displayed across tournaments, among other features. Built using Ruby, Rails, and Javascript/Jquery and AJAX.
