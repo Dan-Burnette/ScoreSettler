@@ -57,6 +57,14 @@ $('.sortable').mouseover(function(){
     $(this).removeClass('highlight');
 });
 
-('.delete-tournament').on('click', function() {
-	var deleteJSON = {}
-})
+// For deleting a tournament
+$('.delete-tournament').on('click', function() {
+	var tournamentId = $(this).val();
+	$.ajax({
+		url: '/tournaments/' + tournamentId,
+		dataType: 'json',
+		type: 'DELETE'
+	})
+	window.location.reload();
+});
+
