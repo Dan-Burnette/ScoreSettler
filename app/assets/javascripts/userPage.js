@@ -17,5 +17,15 @@ $('.accept-invite').on('click', function() {
 	window.location.reload(true);
 })
 
+$('.delete-group').on('click', function() {
+	var groupId = $(this).val();
+	$.ajax({
+		url: '/groups/' + groupId,
+		dataType: 'json',
+		type: 'DELETE',
+		data: JSON
+	})
+	window.location.reload();
+})
 
 

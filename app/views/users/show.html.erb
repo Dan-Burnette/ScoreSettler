@@ -5,7 +5,11 @@
 	<h2>Your Groups</h2>
 	<% @active_groups.each do |group| %>
 		<ul> 
-			<li> <p><%= link_to group.name, group_path(group.id) , method: :GET  %><p> </li>
+			<li> <p><%= link_to group.name, group_path(group.id) , method: :GET  %><p> 
+			<% if current_user.id == group.admin_id%>
+				<button class="delete-group" value=<%=group.id%>>Delete Group</button>
+			<% end %>
+			</li>
 		</ul>
 	<% end %>
 </div>

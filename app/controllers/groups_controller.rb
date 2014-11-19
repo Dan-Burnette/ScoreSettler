@@ -52,8 +52,18 @@ class GroupsController < ApplicationController
       @victories = stats[:victories]
       @defeats = stats[:defeats]
     end
-
   end
+
+  def destroy
+    group = Group.find(params[:id])
+    #Find all memberships in that group and delete it
+    memberships = Membership.where("group_id = ?", group.id)
+    memberships.each do |m|
+      Membership.destroy(m.id)
+    end
+    Group.destroy(group.id)
+  end
+
 
   def group_params
     params.require(:group).permit(:name, :admin_id)
