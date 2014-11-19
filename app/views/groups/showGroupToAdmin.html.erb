@@ -61,7 +61,9 @@
 		<% else %>
 			<% @complete_tournaments.each_with_index do |t,i| %>
 				<ul class="completed-tournament-list"> 
-					<li class="tournament-li"> <h5><%= t.name %></h5> <h5> Victor : <%=@champs[i].username%></h5> <h5><%= t.game_type%></h5> <h5>Completed on: <%=t.updated_at.to_s.split(' ')[0]%> </h5></li>
+					<li class="tournament-li"> <h5><%= t.name %></h5> <h5> Victor : <%=@champs[i].username%></h5> <h5><%= t.game_type%></h5> <h5>Completed on: <%=t.updated_at.to_s.split(' ')[0]%> </h5>
+					<button class="delete-tournament" value=<%=t.id%>>delete</button>
+					</li>
 				</ul>
 			<% end %>
 		<% end %>

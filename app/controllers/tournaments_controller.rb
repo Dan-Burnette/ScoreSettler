@@ -65,6 +65,10 @@ class TournamentsController < ApplicationController
     end
   end
 
+  def destroy
+    
+  end
+  
   def tournament_params
     params.require(:tournament).permit(:game_type, :group_id, :name, :champion_id, :size, :double_elim)
   end

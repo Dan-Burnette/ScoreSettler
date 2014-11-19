@@ -56,3 +56,7 @@ $('.sortable').mouseover(function(){
 }).mouseout(function(){
     $(this).removeClass('highlight');
 });
+
+('.delete-tournament').on('click', function() {
+	var deleteJSON = {}
+})
