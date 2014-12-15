@@ -2,6 +2,11 @@
 
 This is a project I made while I was a student at the MakerSquare accelerated learning program
 
-See it in action at http://scoresettler.herokuapp.com
+Check out my video demo at:
+https://www.youtube.com/watch?v=trpICXt3YnI
+
+Or if you actually want to run tournaments:
+
+ http://scoresettler.herokuapp.com
 
 Score Settler is tournament administration web application with social features. It allows you to create a group, invite your friends, and run tournaments within your friend group. Stats are tracked and displayed across tournaments, among other features. Built using Ruby, Rails, and Javascript/Jquery and AJAX.
